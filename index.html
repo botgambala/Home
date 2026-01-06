@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biryani — Home</title>
+  <meta name="description" content="Delicious, aromatic biryani made with the finest spices. Order online or visit us." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Biryani</a>
+      <button id="navToggle" aria-expanded="false" aria-controls="primaryNav" class="nav-toggle">Menu</button>
+      <nav id="primaryNav" class="primary-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#order">Order</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="container hero-content">
+          <h1><span class="accent">Authentic</span> Biryani, cooked with love</h1>
+          <p class="lead">Slow-cooked basmati rice layered with tender meat, whole spices, and fragrant saffron.</p>
+          <div class="hero-ctas">
+            <a class="btn primary" href="#menu">See Menu</a>
+            <a class="btn ghost" id="orderBtn" href="#order">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container about">
+      <div class="about-grid">
+        <div>
+          <h2>Our Story</h2>
+          <p>We handcraft each pot of biryani using time-honored recipes and premium ingredients. From the first fragrance of roasted spices to the last bite, our biryani celebrates tradition and flavor.</p>
+        </div>
+        <div>
+          <h3>Why choose us</h3>
+          <ul class="benefits">
+            <li>Locally sourced ingredients</li>
+            <li>Slow-cooked for depth of flavor</li>
+            <li>Vegetarian and meat options</li>
+            <li>Delivery & takeaway available</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="container menu">
+      <h2>Menu Highlights</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Hyderabadi Chicken Biryani</h3>
+          <p class="desc">Marinated chicken layered with saffron rice and caramelized onions.</p>
+          <div class="price">₹320</div>
+        </article>
+
+        <article class="card">
+          <h3>Lucknowi Mutton Biryani</h3>
+          <p class="desc">Tender mutton cooked in aromatic spices and ghee.</p>
+          <div class="price">₹420</div>
+        </article>
+
+        <article class="card">
+          <h3>Vegetable Biryani (V)</h3>
+          <p class="desc">Seasonal vegetables, nuts, and fragrant rice for a wholesome plate.</p>
+          <div class="price">₹260</div>
+        </article>
+      </div>
+      <p class="note">All dishes can be adjusted for spice level. Ask for raita, salan, or extra gravy.</p>
+    </section>
+
+    <section id="order" class="container order">
+      <h2>Order</h2>
+      <p>Place your order online or call us for same-day pickup.</p>
+      <div class="order-ways">
+        <a class="btn primary" href="mailto:order@biryani.example?subject=Order%20Biryani">Email Order</a>
+        <a class="btn ghost" href="tel:+911234567890">Call +91 12345 67890</a>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact & Visit</h2>
+      <div class="contact-grid">
+        <div>
+          <p><strong>Address:</strong> 42 Spice Lane, Flavor City</p>
+          <p><strong>Hours:</strong> Mon–Sun 11:00–22:00</p>
+        </div>
+        <form class="contact-form" action="mailto:info@biryani.example" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Ask about catering or special orders" required></textarea>
+
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; <span id="year"></span> Biryani — All rights reserved</p>
+      </div>
+      <div class="footer-right">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // simple nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const primaryNav = document.getElementById('primaryNav');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', (!expanded).toString());
+      primaryNav.classList.toggle('open');
+    });
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
