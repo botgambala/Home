@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Biryani On-The-Go Menu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fffaf5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    .menu-container {
+        max-width: 800px;
+        margin: auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #b22222;
+        margin-bottom: 5px;
+    }
+    .contact {
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .contact a {
+        color: #000;
+        text-decoration: none;
+    }
+    h2 {
+        border-bottom: 2px solid #f2c94c;
+        padding-bottom: 5px;
+        margin-top: 25px;
+        color: #444;
+    }
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px dashed #ddd;
+        font-size: 15px;
+    }
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+    .price {
+        font-weight: bold;
+        color: #000;
+    }
+    .sub-item {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="menu-container">
+    <h1>Biryani On-The-Go</h1>
+
+    <div class="contact">
+        📞 Call for Pickup: <a href="tel:9034270968">90342-70968</a>
+    </div>
+
+    <h2>Beverages</h2>
+    <div class="menu-item"><span>Mineral Water</span><span class="price">₹20</span></div>
+    <div class="menu-item"><span>Soda</span><span class="price">₹20</span></div>
+    <div class="menu-item"><span>Cold Drink 750ml</span><span class="price">₹40</span></div>
+    <div class="menu-item"><span>Cold Drink 1L</span><span class="price">₹50</span></div>
+
+    <h2>Egg Specials</h2>
+    <div class="menu-item"><span>Egg Omelette (2 Eggs)</span><span class="price">₹40</span></div>
+    <div class="menu-item"><span>Egg Bhurji (3 Eggs)</span><span class="price">₹40</span></div>
+    <div class="menu-item"><span>Boiled Egg (Per Piece)</span><span class="price">₹10</span></div>
+
+    <h2>Snacks</h2>
+    <div class="menu-item"><span>French Fries</span><span class="price">₹50</span></div>
+    <div class="menu-item"><span>Paneer Fingers</span><span class="price">₹199</span></div>
+    <div class="menu-item"><span>Fried Chicken Bites</span><span class="price">₹199</span></div>
+
+    <h2>Soups</h2>
+    <div class="menu-item"><span>Tomato Soup</span><span class="price">₹40</span></div>
+    <div class="menu-item"><span>Chicken Soup</span><span class="price">₹50</span></div>
+
+    <h2>Biryani</h2>
+    <div class="menu-item"><span>Dum Veg Biryani</span><span class="price">₹99</span></div>
+    <div class="menu-item"><span>Dum Chicken Biryani</span><span class="price">₹199</span></div>
+
+    <h2>Chicken Main Course</h2>
+    <div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
+    <div class="menu-item sub-item"><span>Quarter Chicken</span><span class="price">₹149</span></div>
+    <div class="menu-item sub-item"><span>Half Chicken</span><span class="price">₹299</span></div>
+    <div class="menu-item sub-item"><span>Full Chicken</span><span class="price">₹549</span></div>
+
+    <h2>Handi / Matka Chicken</h2>
+    <div class="menu-item sub-item"><span>Quarter Chicken</span><span class="price">₹175</span></div>
+    <div class="menu-item sub-item"><span>Half Chicken</span><span class="price">₹349</span></div>
+    <div class="menu-item sub-item"><span>Full Chicken</span><span class="price">₹649</span></div>
+</div>
+
+</body>
+</html>
