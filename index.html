@@ -122,17 +122,13 @@ header.scrolled img {
 /* TAGLINE */
 .tagline {
   font-style:normal;
-  font-size:18px; /* bigger */
-  font-weight:bold; /* bold */
+  font-size:18px;
+  font-weight:bold;
   color:var(--dark-brown);
   letter-spacing:1px;
   opacity:1;
   transition:all .4s ease;
   white-space: nowrap;
-}
-
-header.scrolled .tagline {
-  transform:translateY(0); /* fully visible even on scroll */
 }
 
 /* NAV */
@@ -234,6 +230,55 @@ footer {
   padding:16px;
 }
 
+/* SLIDER */
+.slider-container {
+  padding:0;
+  overflow:hidden;
+}
+
+.slider {
+  position:relative;
+  max-width:100%;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.slides {
+  display:flex;
+  transition:transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width:100%;
+  flex-shrink:0;
+  object-fit:cover;
+  border-radius:12px;
+  height:250px;
+}
+
+/* NAVIGATION BUTTONS */
+.prev, .next {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(90,42,12,0.7);
+  color:#fff;
+  border:none;
+  font-size:24px;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:2;
+  transition:background .3s ease;
+}
+
+.prev:hover, .next:hover {
+  background:var(--orange);
+}
+
+.prev { left:10px; }
+.next { right:10px; }
+
 /* MOBILE */
 @media(max-width:600px){
   .header-inner {
@@ -249,6 +294,13 @@ footer {
     font-size:16px;
   }
   nav a { margin:0 15px; }
+  .slides img {
+    height:180px;
+  }
+  .prev, .next {
+    font-size:18px;
+    padding:6px 10px;
+  }
 }
 </style>
 </head>
@@ -270,6 +322,21 @@ footer {
 </header>
 
 <section>
+
+  <!-- IMAGE SLIDER START -->
+  <div class="card slider-container">
+    <div class="slider">
+      <div class="slides">
+        <img src="food1.jpg" alt="Delicious Biryani">
+        <img src="food2.jpg" alt="Paneer Tikka">
+        <img src="food3.jpg" alt="Fried Chicken Strips">
+        <img src="food4.jpg" alt="Egg Omelette Special">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+  <!-- IMAGE SLIDER END -->
 
   <div class="card">
     <h2>About Us</h2>
@@ -341,9 +408,9 @@ window.addEventListener("scroll", () => {
 
   // Slide hide/show
   if(currentScroll > lastScrollY && currentScroll > 100){
-    header.classList.add("hidden"); // scrolling down
+    header.classList.add("hidden");
   } else {
-    header.classList.remove("hidden"); // scrolling up
+    header.classList.remove("hidden");
   }
 
   lastScrollY = currentScroll;
@@ -358,6 +425,26 @@ function adjustBodyPadding() {
 
 window.addEventListener('load', adjustBodyPadding);
 window.addEventListener('resize', adjustBodyPadding);
+
+/* SIMPLE SLIDER JS */
+const slides = document.querySelector(".slides");
+const slideImages = document.querySelectorAll(".slides img");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let index = 0;
+
+function showSlide(i){
+  if(i >= slideImages.length) index = 0;
+  else if(i < 0) index = slideImages.length - 1;
+  else index = i;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+
+nextBtn.addEventListener("click", ()=>{ showSlide(index+1); });
+prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
+
+setInterval(()=>{ showSlide(index+1); }, 4000);
 </script>
 
 </body>
