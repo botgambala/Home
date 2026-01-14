@@ -73,7 +73,7 @@ header.hidden {
 }
 
 header.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 18px rgba(0,0,0,.1);
 }
@@ -99,20 +99,16 @@ header.scrolled .header-inner {
   padding:4px 15px;
 }
 
-/* BRAND: LOGO + TAGLINE HORIZONTAL */
+/* BRAND: LOGO LEFT, TAGLINE RIGHT */
 .brand {
   display:flex;
   flex-direction:row;
   align-items:center;
-  gap:12px;
-}
-
-header.scrolled .brand {
-  gap:8px;
+  gap:20px;
 }
 
 header img {
-  max-width:150px; /* larger logo */
+  max-width:150px;
   transition:transform .4s ease, max-width .4s ease;
   opacity:0;
   transform:translateY(-20px);
@@ -120,22 +116,23 @@ header img {
 }
 
 header.scrolled img {
-  transform:scale(0.9);
+  transform:scale(0.95);
 }
 
 /* TAGLINE */
 .tagline {
-  font-style:italic;
-  font-size:14px;
+  font-style:normal;
+  font-size:18px; /* bigger */
+  font-weight:bold; /* bold */
   color:var(--dark-brown);
   letter-spacing:1px;
   opacity:1;
   transition:all .4s ease;
+  white-space: nowrap;
 }
 
 header.scrolled .tagline {
-  opacity:0;
-  transform:translateY(-10px);
+  transform:translateY(0); /* fully visible even on scroll */
 }
 
 /* NAV */
@@ -244,10 +241,14 @@ footer {
     text-align:center;
     gap:10px;
   }
-  nav a { margin:0 15px; }
-  .tagline {
-    margin-top:4px;
+  .brand {
+    flex-direction:column;
+    gap:6px;
   }
+  .tagline {
+    font-size:16px;
+  }
+  nav a { margin:0 15px; }
 }
 </style>
 </head>
