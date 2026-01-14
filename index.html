@@ -19,17 +19,44 @@ body {
     color: #333;
 }
 
+/* HEADER */
 header {
     background: white;
-    padding: 25px 15px;
-    text-align: center;
     border-bottom: 3px solid var(--orange);
 }
 
-header img {
-    max-width: 260px;
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+header img {
+    max-width: 220px;
+}
+
+/* NAV */
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--dark-brown);
+    padding-bottom: 5px;
+}
+
+nav a.active {
+    color: var(--orange);
+    border-bottom: 3px solid var(--orange);
+}
+
+nav a:hover {
+    color: var(--orange);
+}
+
+/* SECTIONS */
 section {
     max-width: 1000px;
     margin: auto;
@@ -50,22 +77,10 @@ h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.menu ul,
 .hours ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.menu li {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed #ddd;
-}
-
-.menu li:last-child {
-    border-bottom: none;
 }
 
 .hours li {
@@ -81,18 +96,24 @@ h2 {
     text-align: center;
 }
 
-.call-btn {
+.call-btn,
+.map-btn {
     display: inline-block;
-    margin-top: 15px;
+    margin: 10px;
     background: var(--orange);
     color: white;
     padding: 12px 30px;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
 }
 
+.map-btn {
+    background: var(--dark-brown);
+}
+
+/* FOOTER */
 footer {
     background: var(--dark-brown);
     color: white;
@@ -100,13 +121,33 @@ footer {
     padding: 15px;
     font-size: 14px;
 }
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <img src="logo.png" alt="Biryani On-The-Go Logo">
+    <div class="header-inner">
+        <img src="logo.png" alt="Biryani On-The-Go Logo">
+
+        <nav>
+            <a href="index.html" data-page="index">Home</a>
+            <a href="https://www.biryanionthego.in/Menu" data-page="menu">Menu</a>
+        </nav>
+    </div>
 </header>
 
 <section>
@@ -117,18 +158,6 @@ footer {
             egg specials, snacks and beverages — freshly prepared for
             quick pickup in Ambala.
         </p>
-    </div>
-
-    <div class="card menu">
-        <h2>Popular Items</h2>
-        <ul>
-            <li><span>Chicken Biryani</span><span>₹---</span></li>
-            <li><span>Egg Omelette (2 Eggs)</span><span>₹40</span></li>
-            <li><span>Egg Bhurji</span><span>₹---</span></li>
-            <li><span>French Fries</span><span>₹---</span></li>
-            <li><span>Cold Drink (750ml)</span><span>₹40</span></li>
-            <li><span>Mineral Water</span><span>₹20</span></li>
-        </ul>
     </div>
 
     <div class="card hours">
@@ -145,14 +174,37 @@ footer {
     </div>
 
     <div class="card contact">
-        <h2>Call for Fast Pickup</h2>
+        <h2>Visit or Call Us</h2>
+
         <a class="call-btn" href="tel:9034270968">📞 90342-70968</a>
+
+        <a class="map-btn"
+           href="https://www.google.com/maps/place/Biryani+On-The-Go/@30.3691289,76.7693247,17z"
+           target="_blank">
+           📍 Get Directions
+        </a>
     </div>
 </section>
 
 <footer>
     © 2026 Biryani On-The-Go | Ambala
 </footer>
+
+<!-- AUTO ACTIVE TAB SCRIPT -->
+<script>
+(function () {
+    const path = window.location.pathname.toLowerCase();
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+        if (path.includes("menu") && link.dataset.page === "menu") {
+            link.classList.add("active");
+        } else if (!path.includes("menu") && link.dataset.page === "index") {
+            link.classList.add("active");
+        }
+    });
+})();
+</script>
 
 </body>
 </html>
