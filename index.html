@@ -5,11 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Biryani On-The-Go | Ambala</title>
 
+<!-- GOOGLE BUSINESS SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Biryani On-The-Go",
+  "image": "https://www.biryanionthego.in/logo.png",
+  "url": "https://www.biryanionthego.in",
+  "telephone": "+91-9034270968",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ambala Cantt",
+    "addressLocality": "Ambala",
+    "addressRegion": "Haryana",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 30.3691289,
+    "longitude": 76.7693247
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Sunday","Monday","Wednesday","Thursday","Friday","Saturday"
+      ],
+      "opens": "12:00",
+      "closes": "22:00"
+    }
+  ],
+  "sameAs": [
+    "https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8"
+  ]
+}
+</script>
+
 <style>
 :root {
     --orange: #e36a1c;
     --dark-brown: #5a2a0c;
-    --light-bg: #fffaf5;
+    --light-bg: #fff8f1;
 }
 
 body {
@@ -22,16 +60,29 @@ body {
 /* HEADER */
 header {
     background: white;
-    border-bottom: 3px solid var(--orange);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 4px solid var(--orange);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
 .header-inner {
     max-width: 1100px;
     margin: auto;
-    padding: 15px;
+    padding: 18px 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: padding 0.3s ease;
+}
+
+header.scrolled .header-inner {
+    padding: 10px 15px;
 }
 
 .brand {
@@ -41,22 +92,39 @@ header {
 
 header img {
     max-width: 220px;
+    transition: transform 0.3s ease;
 }
 
+header.scrolled img {
+    transform: scale(0.9);
+}
+
+/* TAGLINE */
 .tagline {
-    font-size: 14px;
+    font-size: 15px;
+    font-style: italic;
     color: var(--dark-brown);
-    margin-top: 4px;
-    letter-spacing: 0.5px;
+    margin-top: 6px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.tagline::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--orange);
+    margin-top: 6px;
 }
 
 /* NAV */
 nav a {
-    margin-left: 25px;
+    margin-left: 28px;
     text-decoration: none;
     font-weight: 600;
     color: var(--dark-brown);
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 nav a.active {
@@ -68,35 +136,39 @@ nav a:hover {
     color: var(--orange);
 }
 
-/* SECTIONS */
+/* CONTENT */
 section {
     max-width: 1000px;
     margin: auto;
-    padding: 30px 15px;
+    padding: 35px 15px;
 }
 
 h2 {
     color: var(--dark-brown);
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--orange);
+    margin: 10px auto 0;
 }
 
 .card {
     background: white;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .hours ul {
     list-style: none;
     padding: 0;
-    margin: 0;
-}
-
-.hours li {
-    padding: 6px 0;
 }
 
 .closed {
@@ -111,18 +183,28 @@ h2 {
 .call-btn,
 .map-btn {
     display: inline-block;
-    margin: 10px;
-    background: var(--orange);
+    margin: 12px;
+    padding: 13px 32px;
+    border-radius: 40px;
     color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 17px;
     font-weight: bold;
+    text-decoration: none;
+}
+
+.call-btn {
+    background: var(--orange);
 }
 
 .map-btn {
     background: var(--dark-brown);
+}
+
+/* MAP */
+.map-embed iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 12px;
 }
 
 /* FOOTER */
@@ -130,20 +212,24 @@ footer {
     background: var(--dark-brown);
     color: white;
     text-align: center;
-    padding: 15px;
-    font-size: 14px;
+    padding: 16px;
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
     .header-inner {
         flex-direction: column;
-        gap: 10px;
         text-align: center;
+        gap: 10px;
     }
 
     nav a {
         margin: 0 15px;
+    }
+
+    .tagline::after {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 </style>
@@ -151,7 +237,7 @@ footer {
 
 <body>
 
-<header>
+<header id="siteHeader">
     <div class="header-inner">
         <div class="brand">
             <img src="logo.png" alt="Biryani On-The-Go Logo">
@@ -178,26 +264,26 @@ footer {
     <div class="card hours">
         <h2>Opening Hours</h2>
         <ul>
-            <li>Sunday: 12:00 PM – 10:00 PM</li>
-            <li>Monday: 12:00 PM – 10:00 PM</li>
+            <li>Sunday–Monday: 12:00 PM – 10:00 PM</li>
             <li class="closed">Tuesday: Closed</li>
-            <li>Wednesday: 12:00 PM – 10:00 PM</li>
-            <li>Thursday: 12:00 PM – 10:00 PM</li>
-            <li>Friday: 12:00 PM – 10:00 PM</li>
-            <li>Saturday: 12:00 PM – 10:00 PM</li>
+            <li>Wednesday–Saturday: 12:00 PM – 10:00 PM</li>
         </ul>
     </div>
 
     <div class="card contact">
         <h2>Visit or Call Us</h2>
-
         <a class="call-btn" href="tel:9034270968">📞 90342-70968</a>
-
-        <a class="map-btn"
-           href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8"
-           target="_blank">
-           📍 Get Directions
+        <a class="map-btn" href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
+            📍 Get Directions
         </a>
+    </div>
+
+    <div class="card map-embed">
+        <h2>Find Us on Map</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.277520565273!2d76.7693247!3d30.3691289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc9f8585d3b93%3A0xd8d5111ae850073c!2sBiryani%20On-The-Go"
+          loading="lazy">
+        </iframe>
     </div>
 </section>
 
@@ -205,13 +291,11 @@ footer {
     © 2026 Biryani On-The-Go | Ambala
 </footer>
 
-<!-- AUTO ACTIVE TAB SCRIPT -->
 <script>
+/* ACTIVE TAB */
 (function () {
     const path = window.location.pathname.toLowerCase();
-    const links = document.querySelectorAll("nav a");
-
-    links.forEach(link => {
+    document.querySelectorAll("nav a").forEach(link => {
         if (path.includes("menu") && link.dataset.page === "menu") {
             link.classList.add("active");
         } else if (!path.includes("menu") && link.dataset.page === "index") {
@@ -219,6 +303,12 @@ footer {
         }
     });
 })();
+
+/* HEADER SCROLL ANIMATION */
+window.addEventListener("scroll", () => {
+    document.getElementById("siteHeader")
+        .classList.toggle("scrolled", window.scrollY > 40);
+});
 </script>
 
 </body>
