@@ -53,6 +53,7 @@ body {
   background:var(--light-bg);
   color:#333;
   scroll-behavior:smooth;
+  /* padding-top will be set dynamically via JS */
 }
 
 /* HEADER */
@@ -176,7 +177,7 @@ nav a:hover {
 /* CONTENT */
 section {
   max-width:1000px;
-  margin:90px auto 50px;
+  margin:auto;
   padding:35px 15px;
 }
 
@@ -360,6 +361,16 @@ window.addEventListener("scroll", () => {
 
   lastScrollY = currentScroll;
 });
+
+/* DYNAMIC HEADER HEIGHT - push body content below header */
+function adjustBodyPadding() {
+  const header = document.getElementById('siteHeader');
+  const headerHeight = header.offsetHeight;
+  document.body.style.paddingTop = headerHeight + 'px';
+}
+
+window.addEventListener('load', adjustBodyPadding);
+window.addEventListener('resize', adjustBodyPadding);
 </script>
 
 </body>
