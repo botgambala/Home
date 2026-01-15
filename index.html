@@ -310,11 +310,50 @@ h2::after {
   margin:auto;
 }
 
-/* LIVE MENU CONTAINER */
+/* LIVE MENU STYLING */
 #menu-container {
-  position:relative;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
 }
 
+.menu-item {
+  background: #fff8f1;
+  border-radius: 12px;
+  padding: 18px 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+}
+
+.dish-name {
+  font-weight:600;
+  font-size:16px;
+  color: var(--dark-brown);
+}
+
+.dish-desc {
+  font-size:14px;
+  color:#555;
+  max-width:400px;
+  margin-top:4px;
+}
+
+.dish-price {
+  font-weight:bold;
+  color: var(--orange);
+  font-size:16px;
+  margin-left:auto;
+}
+
+/* PLACEHOLDER */
 #menu-content-placeholder {
   text-align:center;
   color:#777;
@@ -324,24 +363,14 @@ h2::after {
 
 /* MOBILE */
 @media(max-width:768px){
-  .header-inner {
-    flex-direction:column;
-    text-align:center;
-    gap:10px;
-  }
-  .brand {
-    flex-direction:column;
-    gap:6px;
-  }
-  .tagline {
-    font-size:16px;
-  }
-  .header-contact {
-    font-size:13px;
-  }
+  .header-inner { flex-direction:column; text-align:center; gap:10px; }
+  .brand { flex-direction:column; gap:6px; }
+  .tagline { font-size:16px; }
+  .header-contact { font-size:13px; }
   nav a { margin:0 15px; }
   .slides img { height:180px; }
   .prev, .next { font-size:18px; padding:6px 10px; }
+  .dish-desc { max-width:100%; margin-top:6px; }
 }
 </style>
 </head>
@@ -499,18 +528,39 @@ prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
 
 setInterval(()=>{ showSlide(index+1); }, 4000);
 
-/* DYNAMIC MENU LOAD */
+/* DYNAMIC MENU LOAD AND FORMAT */
 fetch("https://www.biryanionthego.in/Menu.html")
   .then(res => res.text())
   .then(html => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
     const menuContent = doc.querySelector("#menu-content");
+    const menuContainer = document.getElementById("menu-container");
+    const placeholder = document.getElementById("menu-content-placeholder");
+
     if(menuContent){
-      document.getElementById("menu-container").appendChild(menuContent);
-      document.getElementById("menu-content-placeholder").remove();
+      // Clear placeholder
+      placeholder.remove();
+
+      // Transform each item to card layout
+      menuContent.querySelectorAll(".menu-item-original").forEach(item=>{
+        const dishName = item.querySelector(".dish-name")?.innerText || "";
+        const dishDesc = item.querySelector(".dish-desc")?.innerText || "";
+        const dishPrice = item.querySelector(".dish-price")?.innerText || "";
+
+        const div = document.createElement("div");
+        div.className = "menu-item";
+        div.innerHTML = `
+          <div>
+            <div class="dish-name">${dishName}</div>
+            <div class="dish-desc">${dishDesc}</div>
+          </div>
+          <div class="dish-price">${dishPrice}</div>
+        `;
+        menuContainer.appendChild(div);
+      });
     } else {
-      document.getElementById("menu-content-placeholder").innerText = "Menu not found.";
+      placeholder.innerText = "Menu not found.";
     }
   })
   .catch(err => {
