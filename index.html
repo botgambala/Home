@@ -3,51 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biryani On-The-Go | Ambala</title>
+<title>Biryani On-The-Go | Authentic Dum Biryani in Ambala</title>
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="logo.png">
 
-<!-- GOOGLE BUSINESS SCHEMA -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "Biryani On-The-Go",
-  "url": "https://www.biryanionthego.in",
-  "logo": "https://www.biryanionthego.in/logo.png",
-  "telephone": "+91-9034270968",
-  "priceRange": "₹₹",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "260, New Mandi Township, near Shiva Hardware",
-    "addressLocality": "Ambala",
-    "addressRegion": "Haryana",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 30.3691243,
-    "longitude": 76.7718996
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Sunday","Monday","Wednesday","Thursday","Friday","Saturday"],
-    "opens": "12:00",
-    "closes": "22:00"
-  }],
-  "hasMap": "https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8"
-}
-</script>
-
 <style>
-:root {
+:root{
   --orange:#e36a1c;
   --dark-brown:#5a2a0c;
   --light-bg:#fff8f1;
 }
 
-body {
+body{
   margin:0;
   font-family:"Segoe UI", Arial, sans-serif;
   background:var(--light-bg);
@@ -56,320 +23,170 @@ body {
 }
 
 /* HEADER */
-header {
+header{
   position:fixed;
-  top:0;
-  left:0;
+  top:0; left:0;
   width:100%;
-  z-index:999;
   background:#fff;
   border-bottom:4px solid var(--orange);
-  transition:all .4s ease, background .4s ease, backdrop-filter .4s ease;
-  backdrop-filter: none;
+  z-index:999;
 }
 
-header.hidden {
-  transform: translateY(-100%);
-}
-
-header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.1);
-}
-
-.header-inner {
+.header-inner{
   max-width:1100px;
   margin:auto;
-  padding:6px 15px; 
+  padding:8px 15px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  transition:all .4s ease;
-  opacity:0;
-  transform:translateY(-20px);
-  animation: fadeSlideIn 0.8s forwards 0.2s;
-}
-
-@keyframes fadeSlideIn {
-  to { opacity:1; transform:translateY(0); }
-}
-
-header.scrolled .header-inner {
-  padding:4px 15px;
-}
-
-/* BRAND: LOGO LEFT, TAGLINE + INFO RIGHT */
-.brand {
-  display:flex;
-  flex-direction:row;
   align-items:center;
-  gap:20px;
 }
 
-header img {
-  max-width:150px;
-  transition:transform .4s ease, max-width .4s ease;
-  opacity:0;
-  transform:translateY(-20px);
-  animation: fadeSlideIn 0.8s forwards 0.4s;
-}
-
-header.scrolled img {
-  transform:scale(0.95);
-}
-
-.tagline-info {
+.brand{
   display:flex;
-  flex-direction:column;
-  gap:6px;
+  gap:15px;
+  align-items:center;
 }
 
-.tagline {
-  font-style:normal;
-  font-size:18px;
-  font-weight:bold;
+header img{
+  max-width:140px;
+}
+
+.tagline{
+  font-weight:700;
   color:var(--dark-brown);
-  letter-spacing:1px;
-  opacity:1;
-  white-space: nowrap;
 }
 
-.header-contact {
+.header-contact{
   font-size:14px;
-  color:#555;
 }
 
-.header-contact a {
+.header-contact a{
   color:var(--dark-brown);
   text-decoration:none;
-  margin-right:12px;
 }
 
-.header-contact a:hover {
-  color:var(--orange);
-}
-
-/* NAV */
-nav a {
-  margin-left:28px;
+nav a{
+  margin-left:25px;
   text-decoration:none;
   font-weight:600;
   color:var(--dark-brown);
-  padding-bottom:6px;
-  opacity:0;
-  transform:translateY(-10px);
-  animation: fadeSlideIn 0.6s forwards;
 }
 
-nav a:nth-child(1) { animation-delay:0.6s; }
-nav a:nth-child(2) { animation-delay:0.8s; }
-
-nav a.active {
+nav a:hover,
+nav a.active{
   color:var(--orange);
   border-bottom:3px solid var(--orange);
+  padding-bottom:4px;
 }
 
-nav a:hover {
-  color:var(--orange);
-}
-
-/* CONTENT */
-section {
+/* GENERAL */
+section{
   max-width:1000px;
   margin:auto;
-  padding:35px 15px;
+  padding:40px 15px;
 }
 
-h2 {
+h2{
   text-align:center;
   color:var(--dark-brown);
-  margin-bottom:18px;
 }
 
-h2::after {
+h2::after{
   content:"";
   display:block;
   width:50px;
   height:3px;
   background:var(--orange);
-  margin:10px auto 0;
+  margin:10px auto;
 }
 
-.card {
+.card{
   background:#fff;
-  border-radius:12px;
   padding:30px;
-  margin-bottom:35px;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin-bottom:40px;
 }
 
-.hours ul {
-  list-style:none;
-  padding:0;
-}
-
-.closed {
-  color:var(--orange);
-  font-weight:bold;
-}
-
-.contact {
+/* ABOUT */
+.about-text{
   text-align:center;
+  font-size:16px;
+  line-height:1.6;
 }
 
-.call-btn,
-.map-btn {
-  display:inline-block;
-  margin:12px;
-  padding:13px 32px;
-  border-radius:40px;
-  color:#fff;
-  font-weight:bold;
-  text-decoration:none;
+/* LIVE MENU */
+.menu-subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#666;
+  margin-bottom:25px;
 }
 
-.call-btn { background:var(--orange); }
-.map-btn { background:var(--dark-brown); }
-
-/* MAP */
-.map-embed iframe {
-  width:100%;
-  height:350px;
-  border:0;
-  border-radius:12px;
-  referrerpolicy:no-referrer-when-downgrade;
+#live-menu-container h2{
+  font-size:20px;
+  margin-top:35px;
 }
 
-/* SLIDER */
-.slider-container {
-  padding:0;
-  overflow:hidden;
-}
-
-.slider {
-  position:relative;
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-.slides {
+#live-menu-container .menu-item{
   display:flex;
-  transition:transform 0.5s ease-in-out;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px dashed #ddd;
+  font-size:15px;
 }
 
-.slides img {
-  width:100%;
-  height:300px;          
-  flex-shrink:0;
-  object-fit:cover;       
-  object-position:center;  
-  border-radius:12px;
-  background:#fff;
+#live-menu-container .sub-item{
+  margin-left:20px;
+  font-size:14px;
 }
 
-/* NAVIGATION BUTTONS */
-.prev, .next {
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(90,42,12,0.7);
-  color:#fff;
-  border:none;
-  font-size:24px;
-  padding:8px 12px;
-  cursor:pointer;
-  border-radius:50%;
-  z-index:2;
-  transition:background .3s ease;
-}
-
-.prev:hover, .next:hover {
-  background:var(--orange);
-}
-
-.prev { left:10px; }
-.next { right:10px; }
-
-/* PREMIUM ABOUT US STYLING */
-.section-title {
-  font-size:28px;
+#live-menu-container .price{
   font-weight:700;
-  color:var(--dark-brown);
-  margin-bottom:14px;
 }
 
-.about-text {
-  font-size:16px;
-  line-height:1.8;
-  color:#444;
-  max-width:900px;
-  margin:auto;
+.menu-loading{
+  text-align:center;
+  color:#999;
 }
 
-/* LIVE MENU STYLING */
-#menu-container {
-  display: flex;
-  flex-direction: column;
-  gap:20px;
+.menu-cta{
+  text-align:center;
+  margin-top:25px;
 }
 
-.menu-item {
-  background: #fff8f1;
-  border-radius: 12px;
-  padding: 18px 22px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  transition: transform 0.3s ease;
+.view-full-menu{
+  display:inline-block;
+  padding:12px 30px;
+  background:var(--orange);
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-.menu-item:hover {
-  transform: translateY(-3px);
+.view-full-menu:hover{
+  background:var(--dark-brown);
 }
 
-.dish-name {
-  font-weight:600;
-  font-size:16px;
-  color: var(--dark-brown);
-}
-
-.dish-desc {
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
   font-size:14px;
   color:#555;
-  max-width:400px;
-  margin-top:4px;
-}
-
-.dish-price {
-  font-weight:bold;
-  color: var(--orange);
-  font-size:16px;
-  margin-left:auto;
-}
-
-/* PLACEHOLDER */
-#menu-content-placeholder {
-  text-align:center;
-  color:#777;
-  font-style:italic;
-  padding:20px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .header-inner { flex-direction:column; text-align:center; gap:10px; }
-  .brand { flex-direction:column; gap:6px; }
-  .tagline { font-size:16px; }
-  .header-contact { font-size:13px; }
-  nav a { margin:0 15px; }
-  .slides img { height:180px; }
-  .dish-desc { max-width:100%; margin-top:6px; }
+  .header-inner{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+  nav a{
+    margin:0 12px;
+  }
 }
 </style>
 </head>
@@ -379,83 +196,48 @@ h2::after {
 <header id="siteHeader">
   <div class="header-inner">
     <div class="brand">
-      <img src="logo.png" alt="Biryani On-The-Go Logo">
-      <div class="tagline-info">
+      <img src="logo.png" alt="Biryani On-The-Go">
+      <div>
         <div class="tagline">Authentic Flavour, Anytime!</div>
         <div class="header-contact">
           <a href="tel:9034270968">📞 90342-70968</a> |
-          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">📍 260, New Mandi Township, Ambala</a>
+          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
+            📍 Ambala
+          </a>
         </div>
       </div>
     </div>
 
     <nav>
-      <a href="index.html" data-page="index">Home</a>
-      <a href="Menu.html" data-page="menu">Menu</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="Menu.html">Menu</a>
     </nav>
   </div>
 </header>
 
-<section>
+<!-- ABOUT -->
+<section class="card">
+  <h2>Crafted for the Modern Biryani Lover</h2>
+  <p class="about-text">
+    Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic
+    Dum Biryani with rich flavours and fragrant rice. Freshly cooked, packed hot,
+    and made to travel well. Alongside biryani, we offer a rotating range of veg
+    and non-veg favourites for quick, satisfying bites.
+  </p>
+</section>
 
-  <!-- IMAGE SLIDER START -->
-  <div class="card slider-container">
-    <div class="slider">
-      <div class="slides">
-        <img src="food1.jpg" alt="Delicious Biryani">
-        <img src="food2.jpg" alt="Paneer Tikka">
-        <img src="food3.jpg" alt="Fried Chicken Strips">
-        <img src="food4.jpg" alt="Egg Omelette Special">
-      </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-  </div>
-  <!-- IMAGE SLIDER END -->
+<!-- LIVE MENU -->
+<section class="card" id="live-menu">
+  <h2>Our Menu</h2>
+  <p class="menu-subtitle">Live pricing • Always updated</p>
 
-  <!-- PREMIUM ABOUT US -->
-  <div class="card">
-    <h2 class="section-title">Our Kitchen Philosophy</h2>
-    <p class="about-text">
-      Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic Dum Biryani
-      with rich flavours and fragrant rice. Freshly cooked, packed hot, and made to travel well.
-      Alongside biryani, we offer a rotating range of veg and non-veg favourites for quick,
-      satisfying bites.
-    </p>
+  <div id="live-menu-container">
+    <p class="menu-loading">Loading menu…</p>
   </div>
 
-  <!-- LIVE MENU SECTION -->
-  <div class="card" id="menu-container">
-    <h2 class="section-title">Our Menu</h2>
-    <div id="menu-content-placeholder">Loading menu…</div>
+  <div class="menu-cta">
+    <a href="Menu.html" class="view-full-menu">View Full Menu →</a>
   </div>
-
-  <div class="card hours">
-    <h2>Opening Hours</h2>
-    <ul>
-      <li>Sunday – Monday: 12:00 PM – 10:00 PM</li>
-      <li class="closed">Tuesday: Closed</li>
-      <li>Wednesday – Saturday: 12:00 PM – 10:00 PM</li>
-    </ul>
-  </div>
-
-  <div class="card contact">
-    <h2>Visit or Call Us</h2>
-    <p>260, New Mandi Township, near Shiva Hardware, Ambala City</p>
-    <a class="call-btn" href="tel:9034270968">📞 90342-70968</a>
-    <a class="map-btn" href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
-      📍 Get Directions
-    </a>
-  </div>
-
-  <div class="card map-embed">
-    <h2>Find Us on Map</h2>
-    <iframe
-      src="https://www.google.com/maps?q=30.3691243,76.7718996&hl=en&z=17&output=embed"
-      loading="lazy">
-    </iframe>
-  </div>
-
 </section>
 
 <footer>
@@ -463,107 +245,30 @@ h2::after {
 </footer>
 
 <script>
-/* ACTIVE TAB */
-(function(){
-  const path = location.pathname.toLowerCase();
-  document.querySelectorAll("nav a").forEach(link=>{
-    if(path.includes("menu") && link.dataset.page==="menu"){
-      link.classList.add("active");
-    } else if(!path.includes("menu") && link.dataset.page==="index"){
-      link.classList.add("active");
-    }
-  });
-})();
+/* BODY PADDING FOR FIXED HEADER */
+function adjustPadding(){
+  document.body.style.paddingTop =
+    document.getElementById("siteHeader").offsetHeight + "px";
+}
+window.addEventListener("load", adjustPadding);
+window.addEventListener("resize", adjustPadding);
 
-/* HEADER SCROLL WITH SLIDE UP/DOWN */
-let lastScrollY = 0;
-const header = document.getElementById("siteHeader");
+/* LIVE MENU FETCH */
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("Menu.html")
+    .then(res => res.text())
+    .then(html => {
+      const doc = new DOMParser().parseFromString(html,"text/html");
+      const menu = doc.querySelector("#menu-content");
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
-
-  if(currentScroll > 40){
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-
-  if(currentScroll > lastScrollY && currentScroll > 100){
-    header.classList.add("hidden");
-  } else {
-    header.classList.remove("hidden");
-  }
-
-  lastScrollY = currentScroll;
+      document.getElementById("live-menu-container").innerHTML =
+        menu ? menu.innerHTML : "<p>Menu not found.</p>";
+    })
+    .catch(() => {
+      document.getElementById("live-menu-container").innerHTML =
+        "<p>Unable to load menu.</p>";
+    });
 });
-
-/* DYNAMIC HEADER HEIGHT */
-function adjustBodyPadding() {
-  const header = document.getElementById('siteHeader');
-  const headerHeight = header.offsetHeight;
-  document.body.style.paddingTop = headerHeight + 'px';
-}
-
-window.addEventListener('load', adjustBodyPadding);
-window.addEventListener('resize', adjustBodyPadding);
-
-/* SIMPLE SLIDER JS */
-const slides = document.querySelector(".slides");
-const slideImages = document.querySelectorAll(".slides img");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-
-let index = 0;
-
-function showSlide(i){
-  if(i >= slideImages.length) index = 0;
-  else if(i < 0) index = slideImages.length - 1;
-  else index = i;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
-
-nextBtn.addEventListener("click", ()=>{ showSlide(index+1); });
-prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
-
-setInterval(()=>{ showSlide(index+1); }, 4000);
-
-/* DYNAMIC MENU LOAD AND FORMAT */
-fetch("Menu.html")  // relative path to work locally and on server
-  .then(res => res.text())
-  .then(html => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const menuContent = doc.querySelector("#menu-content");
-    const menuContainer = document.getElementById("menu-container");
-    const placeholder = document.getElementById("menu-content-placeholder");
-
-    if(menuContent){
-      placeholder.remove(); // remove loading text
-
-      menuContent.querySelectorAll(".menu-item-original").forEach(item=>{
-        const dishName = item.querySelector(".dish-name")?.innerText || "";
-        const dishDesc = item.querySelector(".dish-desc")?.innerText || "";
-        const dishPrice = item.querySelector(".dish-price")?.innerText || "";
-
-        const div = document.createElement("div");
-        div.className = "menu-item";
-        div.innerHTML = `
-          <div>
-            <div class="dish-name">${dishName}</div>
-            <div class="dish-desc">${dishDesc}</div>
-          </div>
-          <div class="dish-price">${dishPrice}</div>
-        `;
-        menuContainer.appendChild(div);
-      });
-    } else {
-      placeholder.innerText = "Menu not found.";
-    }
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("menu-content-placeholder").innerText = "Failed to load menu.";
-  });
 </script>
 
 </body>
