@@ -99,7 +99,7 @@ header.scrolled .header-inner {
   padding:4px 15px;
 }
 
-/* BRAND: LOGO LEFT, TAGLINE RIGHT */
+/* BRAND: LOGO LEFT, TAGLINE + INFO RIGHT */
 .brand {
   display:flex;
   flex-direction:row;
@@ -119,7 +119,12 @@ header.scrolled img {
   transform:scale(0.95);
 }
 
-/* TAGLINE */
+.tagline-info {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
 .tagline {
   font-style:normal;
   font-size:18px;
@@ -127,8 +132,22 @@ header.scrolled img {
   color:var(--dark-brown);
   letter-spacing:1px;
   opacity:1;
-  transition:all .4s ease;
   white-space: nowrap;
+}
+
+.header-contact {
+  font-size:14px;
+  color:#555;
+}
+
+.header-contact a {
+  color:var(--dark-brown);
+  text-decoration:none;
+  margin-right:12px;
+}
+
+.header-contact a:hover {
+  color:var(--orange);
 }
 
 /* NAV */
@@ -292,7 +311,7 @@ h2::after {
 }
 
 /* MOBILE */
-@media(max-width:600px){
+@media(max-width:768px){
   .header-inner {
     flex-direction:column;
     text-align:center;
@@ -305,14 +324,12 @@ h2::after {
   .tagline {
     font-size:16px;
   }
+  .header-contact {
+    font-size:13px;
+  }
   nav a { margin:0 15px; }
-  .slides img {
-    height:180px;
-  }
-  .prev, .next {
-    font-size:18px;
-    padding:6px 10px;
-  }
+  .slides img { height:180px; }
+  .prev, .next { font-size:18px; padding:6px 10px; }
 }
 </style>
 </head>
@@ -323,7 +340,13 @@ h2::after {
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="Biryani On-The-Go Logo">
-      <div class="tagline">Authentic Flavour, Anytime!</div>
+      <div class="tagline-info">
+        <div class="tagline">Authentic Flavour, Anytime!</div>
+        <div class="header-contact">
+          <a href="tel:9034270968">📞 90342-70968</a> |
+          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">📍 260, New Mandi Township, Ambala</a>
+        </div>
+      </div>
     </div>
 
     <nav>
