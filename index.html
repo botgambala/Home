@@ -76,12 +76,15 @@ nav a.active{
   padding-bottom:4px;
 }
 
-/* SLIDER */
+/* IMAGE SLIDER */
 .slider{
-  margin-top:110px;
-  position:relative;
+  margin:120px auto 0;
+  max-width:1100px;
   height:420px;
+  position:relative;
   overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
 .slide{
@@ -183,7 +186,10 @@ h2::after{
   text-align:center;
 }
 
-.closed{ color:var(--orange); font-weight:bold; }
+.closed{
+  color:var(--orange);
+  font-weight:bold;
+}
 
 /* MAP */
 .map iframe{
@@ -203,7 +209,10 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-  .slider{ height:260px; }
+  .slider{
+    height:260px;
+    margin-top:140px;
+  }
   .header-inner{
     flex-direction:column;
     gap:10px;
@@ -224,10 +233,13 @@ footer{
         <div class="tagline">Authentic Flavour, Anytime!</div>
         <div class="header-contact">
           <a href="tel:9034270968">📞 90342-70968</a> |
-          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">📍 Ambala</a>
+          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
+            📍 260, New Mandi Township, Ambala
+          </a>
         </div>
       </div>
     </div>
+
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="Menu.html">Menu</a>
@@ -238,8 +250,8 @@ footer{
 <!-- IMAGE SLIDER -->
 <div class="slider">
   <div class="slide active"><img src="food1.jpg" alt="Biryani"></div>
-  <div class="slide"><img src="food2.jpg" alt="Food"></div>
-  <div class="slide"><img src="food3.jpg" alt="Snacks"></div>
+  <div class="slide"><img src="food2.jpg" alt="Snacks"></div>
+  <div class="slide"><img src="food3.jpg" alt="Chicken"></div>
 </div>
 
 <!-- ABOUT -->
@@ -256,6 +268,7 @@ footer{
 <!-- MENU PREVIEW -->
 <section class="card">
   <h2>Menu Preview</h2>
+
   <div id="live-menu-container">
     <p style="text-align:center;color:#999;">Loading menu…</p>
   </div>
@@ -291,7 +304,7 @@ footer{
 </footer>
 
 <script>
-/* FIX HEADER SPACE */
+/* HEADER SPACING */
 function adjustPadding(){
   document.body.style.paddingTop =
     document.getElementById("siteHeader").offsetHeight + "px";
@@ -299,7 +312,7 @@ function adjustPadding(){
 window.addEventListener("load", adjustPadding);
 window.addEventListener("resize", adjustPadding);
 
-/* SLIDER */
+/* SLIDER AUTO */
 let slides=document.querySelectorAll(".slide");
 let i=0;
 setInterval(()=>{
