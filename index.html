@@ -19,7 +19,6 @@ body{
   font-family:"Segoe UI", Arial, sans-serif;
   background:var(--light-bg);
   color:#333;
-  scroll-behavior:smooth;
 }
 
 /* HEADER */
@@ -47,9 +46,7 @@ header{
   align-items:center;
 }
 
-header img{
-  max-width:140px;
-}
+header img{ max-width:140px; }
 
 .tagline{
   font-weight:700;
@@ -77,6 +74,29 @@ nav a.active{
   color:var(--orange);
   border-bottom:3px solid var(--orange);
   padding-bottom:4px;
+}
+
+/* SLIDER */
+.slider{
+  margin-top:110px;
+  position:relative;
+  height:420px;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+}
+
+.slide.active{ opacity:1; }
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 /* GENERAL */
@@ -115,29 +135,22 @@ h2::after{
   line-height:1.6;
 }
 
-/* LIVE MENU */
-.menu-subtitle{
-  text-align:center;
-  font-size:14px;
-  color:#666;
-  margin-bottom:25px;
-}
-
+/* LIVE MENU PREVIEW */
 #live-menu-container h2{
-  font-size:20px;
-  margin-top:35px;
+  font-size:18px;
+  margin-top:28px;
 }
 
 #live-menu-container .menu-item{
   display:flex;
   justify-content:space-between;
-  padding:10px 0;
+  padding:8px 0;
   border-bottom:1px dashed #ddd;
   font-size:15px;
 }
 
 #live-menu-container .sub-item{
-  margin-left:20px;
+  margin-left:18px;
   font-size:14px;
 }
 
@@ -145,18 +158,16 @@ h2::after{
   font-weight:700;
 }
 
-.menu-loading{
+.menu-preview-note{
   text-align:center;
-  color:#999;
-}
-
-.menu-cta{
-  text-align:center;
-  margin-top:25px;
+  font-size:13px;
+  color:#777;
+  margin-top:15px;
 }
 
 .view-full-menu{
   display:inline-block;
+  margin-top:20px;
   padding:12px 30px;
   background:var(--orange);
   color:#fff;
@@ -165,8 +176,21 @@ h2::after{
   font-weight:bold;
 }
 
-.view-full-menu:hover{
-  background:var(--dark-brown);
+/* HOURS */
+.hours ul{
+  list-style:none;
+  padding:0;
+  text-align:center;
+}
+
+.closed{ color:var(--orange); font-weight:bold; }
+
+/* MAP */
+.map iframe{
+  width:100%;
+  height:350px;
+  border:0;
+  border-radius:12px;
 }
 
 /* FOOTER */
@@ -179,14 +203,13 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
+  .slider{ height:260px; }
   .header-inner{
     flex-direction:column;
     gap:10px;
     text-align:center;
   }
-  nav a{
-    margin:0 12px;
-  }
+  nav a{ margin:0 12px; }
 }
 </style>
 </head>
@@ -201,13 +224,10 @@ footer{
         <div class="tagline">Authentic Flavour, Anytime!</div>
         <div class="header-contact">
           <a href="tel:9034270968">📞 90342-70968</a> |
-          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
-            📍 Ambala
-          </a>
+          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">📍 Ambala</a>
         </div>
       </div>
     </div>
-
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="Menu.html">Menu</a>
@@ -215,29 +235,55 @@ footer{
   </div>
 </header>
 
+<!-- IMAGE SLIDER -->
+<div class="slider">
+  <div class="slide active"><img src="food1.jpg" alt="Biryani"></div>
+  <div class="slide"><img src="food2.jpg" alt="Food"></div>
+  <div class="slide"><img src="food3.jpg" alt="Snacks"></div>
+</div>
+
 <!-- ABOUT -->
 <section class="card">
   <h2>Crafted for the Modern Biryani Lover</h2>
   <p class="about-text">
-    Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic
-    Dum Biryani with rich flavours and fragrant rice. Freshly cooked, packed hot,
-    and made to travel well. Alongside biryani, we offer a rotating range of veg
-    and non-veg favourites for quick, satisfying bites.
+    Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic Dum
+    Biryani with rich flavours and fragrant rice. Freshly cooked, packed hot, and
+    made to travel well. Alongside biryani, we offer a rotating range of veg and
+    non-veg favourites for quick, satisfying bites.
   </p>
 </section>
 
-<!-- LIVE MENU -->
-<section class="card" id="live-menu">
-  <h2>Our Menu</h2>
-  <p class="menu-subtitle">Live pricing • Always updated</p>
-
+<!-- MENU PREVIEW -->
+<section class="card">
+  <h2>Menu Preview</h2>
   <div id="live-menu-container">
-    <p class="menu-loading">Loading menu…</p>
+    <p style="text-align:center;color:#999;">Loading menu…</p>
   </div>
 
-  <div class="menu-cta">
+  <p class="menu-preview-note">Showing a preview. Full menu available.</p>
+
+  <div style="text-align:center;">
     <a href="Menu.html" class="view-full-menu">View Full Menu →</a>
   </div>
+</section>
+
+<!-- OPENING HOURS -->
+<section class="card hours">
+  <h2>Opening Hours</h2>
+  <ul>
+    <li>Sunday – Monday: 12:00 PM – 10:00 PM</li>
+    <li class="closed">Tuesday: Closed</li>
+    <li>Wednesday – Saturday: 12:00 PM – 10:00 PM</li>
+  </ul>
+</section>
+
+<!-- MAP -->
+<section class="card map">
+  <h2>Find Us</h2>
+  <iframe
+    src="https://www.google.com/maps?q=30.3691243,76.7718996&z=17&output=embed"
+    loading="lazy">
+  </iframe>
 </section>
 
 <footer>
@@ -245,7 +291,7 @@ footer{
 </footer>
 
 <script>
-/* BODY PADDING FOR FIXED HEADER */
+/* FIX HEADER SPACE */
 function adjustPadding(){
   document.body.style.paddingTop =
     document.getElementById("siteHeader").offsetHeight + "px";
@@ -253,22 +299,24 @@ function adjustPadding(){
 window.addEventListener("load", adjustPadding);
 window.addEventListener("resize", adjustPadding);
 
-/* LIVE MENU FETCH */
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("Menu.html")
-    .then(res => res.text())
-    .then(html => {
-      const doc = new DOMParser().parseFromString(html,"text/html");
-      const menu = doc.querySelector("#menu-content");
+/* SLIDER */
+let slides=document.querySelectorAll(".slide");
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove("active");
+  i=(i+1)%slides.length;
+  slides[i].classList.add("active");
+},4000);
 
-      document.getElementById("live-menu-container").innerHTML =
-        menu ? menu.innerHTML : "<p>Menu not found.</p>";
-    })
-    .catch(() => {
-      document.getElementById("live-menu-container").innerHTML =
-        "<p>Unable to load menu.</p>";
-    });
-});
+/* LIVE MENU FETCH */
+fetch("Menu.html")
+  .then(r=>r.text())
+  .then(html=>{
+    const doc=new DOMParser().parseFromString(html,"text/html");
+    const menu=doc.querySelector("#menu-content");
+    document.getElementById("live-menu-container").innerHTML =
+      menu ? menu.innerHTML : "<p>Menu unavailable.</p>";
+  });
 </script>
 
 </body>
