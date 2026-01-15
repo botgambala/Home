@@ -41,60 +41,23 @@
 </script>
 
 <style>
-/* ======= KEEP ALL STYLES FROM index.html ======= */
-:root {
-  --orange:#e36a1c;
-  --dark-brown:#5a2a0c;
-  --light-bg:#fff8f1;
-}
-body {
-  margin:0;
-  font-family:"Segoe UI", Arial, sans-serif;
-  background:var(--light-bg);
-  color:#333;
-  scroll-behavior:smooth;
-}
-header {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:999;
-  background:#fff;
-  border-bottom:4px solid var(--orange);
-  transition:all .4s ease, background .4s ease, backdrop-filter .4s ease;
-  backdrop-filter: none;
-}
+/* Keep all homepage styles exactly */
+:root { --orange:#e36a1c; --dark-brown:#5a2a0c; --light-bg:#fff8f1; }
+body { margin:0; font-family:"Segoe UI", Arial, sans-serif; background:var(--light-bg); color:#333; scroll-behavior:smooth; }
+header { position:fixed; top:0; left:0; width:100%; z-index:999; background:#fff; border-bottom:4px solid var(--orange); transition:all .4s ease, background .4s ease, backdrop-filter .4s ease; backdrop-filter: none; }
 header.hidden { transform: translateY(-100%); }
-header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.1);
-}
-.header-inner {
-  max-width:1100px;
-  margin:auto;
-  padding:6px 15px; 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  transition:all .4s ease;
-  opacity:0;
-  transform:translateY(-20px);
-  animation: fadeSlideIn 0.8s forwards 0.2s;
-}
+header.scrolled { background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); box-shadow: 0 6px 18px rgba(0,0,0,.1); }
+.header-inner { max-width:1100px; margin:auto; padding:6px 15px; display:flex; align-items:center; justify-content:space-between; transition:all .4s ease; opacity:0; transform:translateY(-20px); animation: fadeSlideIn 0.8s forwards 0.2s; }
 @keyframes fadeSlideIn { to { opacity:1; transform:translateY(0); } }
 header.scrolled .header-inner { padding:4px 15px; }
 .brand { display:flex; flex-direction:row; align-items:center; gap:20px; }
-header img {
-  max-width:150px;
-  transition:transform .4s ease, max-width .4s ease;
-  opacity:0;
-  transform:translateY(-20px);
-  animation: fadeSlideIn 0.8s forwards 0.4s;
-}
+header img { max-width:150px; transition:transform .4s ease, max-width .4s ease; opacity:0; transform:translateY(-20px); animation: fadeSlideIn 0.8s forwards 0.4s; }
 header.scrolled img { transform:scale(0.95); }
-.tagline { font-style:normal; font-size:18px; font-weight:bold; color:var(--dark-brown); letter-spacing:1px; opacity:1; transition:all .4s ease; white-space: nowrap; }
+.tagline-info { display:flex; flex-direction:column; gap:6px; }
+.tagline { font-style:normal; font-size:18px; font-weight:bold; color:var(--dark-brown); letter-spacing:1px; opacity:1; white-space: nowrap; }
+.header-contact { font-size:14px; color:#555; }
+.header-contact a { color:var(--dark-brown); text-decoration:none; margin-right:12px; }
+.header-contact a:hover { color:var(--orange); }
 nav a { margin-left:28px; text-decoration:none; font-weight:600; color:var(--dark-brown); padding-bottom:6px; opacity:0; transform:translateY(-10px); animation: fadeSlideIn 0.6s forwards; }
 nav a:nth-child(1) { animation-delay:0.6s; }
 nav a:nth-child(2) { animation-delay:0.8s; }
@@ -104,16 +67,16 @@ section { max-width:1000px; margin:auto; padding:35px 15px; }
 h2 { text-align:center; color:var(--dark-brown); margin-bottom:18px; }
 h2::after { content:""; display:block; width:50px; height:3px; background:var(--orange); margin:10px auto 0; }
 .card { background:#fff; border-radius:12px; padding:30px; margin-bottom:35px; box-shadow:0 6px 18px rgba(0,0,0,.08); }
-.contact { text-align:center; }
 .menu-container { max-width:900px; margin:auto; }
 .menu-item { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed #ddd; font-size:16px; }
 .menu-item:last-child { border-bottom:none; }
 .sub-item { margin-left:15px; font-size:14px; }
 .price { font-weight:bold; color:#000; }
-@media(max-width:600px){
+@media(max-width:768px){
   .header-inner { flex-direction:column; text-align:center; gap:10px; }
   .brand { flex-direction:column; gap:6px; }
   .tagline { font-size:16px; }
+  .header-contact { font-size:13px; }
   nav a { margin:0 15px; }
 }
 </style>
@@ -125,7 +88,13 @@ h2::after { content:""; display:block; width:50px; height:3px; background:var(--
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="Biryani On-The-Go Logo">
-      <div class="tagline">Authentic Flavour, Anytime!</div>
+      <div class="tagline-info">
+        <div class="tagline">Authentic Flavour, Anytime!</div>
+        <div class="header-contact">
+          <a href="tel:9034270968">📞 90342-70968</a> |
+          <a href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">📍 260, New Mandi Township, Ambala</a>
+        </div>
+      </div>
     </div>
 
     <nav>
@@ -136,13 +105,22 @@ h2::after { content:""; display:block; width:50px; height:3px; background:var(--
 </header>
 
 <section>
+  <div class="card slider-container">
+    <div class="slider">
+      <div class="slides">
+        <img src="food1.jpg" alt="Delicious Biryani">
+        <img src="food2.jpg" alt="Paneer Tikka">
+        <img src="food3.jpg" alt="Fried Chicken Strips">
+        <img src="food4.jpg" alt="Egg Omelette Special">
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+
   <div class="card menu-container">
     <h2>Our Menu</h2>
-
-    <!-- Phone Number for Pickup -->
-    <div class="contact" style="margin-bottom:20px;">
-      📞 Call for Pickup: <a href="tel:9034270968">90342-70968</a>
-    </div>
+    <div class="contact" style="margin-bottom:20px;">📞 Call for Pickup: <a href="tel:9034270968">90342-70968</a></div>
 
     <!-- Biryani -->
     <div class="menu-item"><span>Dum Veg Biryani</span><span class="price">₹99</span></div>
@@ -190,34 +168,28 @@ h2::after { content:""; display:block; width:50px; height:3px; background:var(--
     <div class="menu-item sub-item"><span>Full Chicken</span><span class="price">₹649</span></div>
 
   </div>
+
 </section>
 
-<footer>
-  © 2026 Biryani On-The-Go | Ambala
-</footer>
+<footer>© 2026 Biryani On-The-Go | Ambala</footer>
 
 <script>
-/* ACTIVE TAB */
 (function(){
   const path = location.pathname.toLowerCase();
   document.querySelectorAll("nav a").forEach(link=>{
-    if(path.includes("menu") && link.dataset.page==="menu"){
-      link.classList.add("active");
-    } else if(!path.includes("menu") && link.dataset.page==="index"){
-      link.classList.add("active");
-    }
+    if(path.includes("menu") && link.dataset.page==="menu"){ link.classList.add("active"); }
+    else if(!path.includes("menu") && link.dataset.page==="index"){ link.classList.add("active"); }
   });
 })();
 
 /* HEADER SCROLL */
 let lastScrollY = 0;
 const header = document.getElementById("siteHeader");
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", ()=>{
   const currentScroll = window.scrollY;
-  if(currentScroll > 40){ header.classList.add("scrolled"); }
-  else { header.classList.remove("scrolled"); }
-  if(currentScroll > lastScrollY && currentScroll > 100){ header.classList.add("hidden"); }
-  else { header.classList.remove("hidden"); }
+  if(currentScroll > 40) header.classList.add("scrolled"); else header.classList.remove("scrolled");
+  if(currentScroll > lastScrollY && currentScroll > 100) header.classList.add("hidden");
+  else header.classList.remove("hidden");
   lastScrollY = currentScroll;
 });
 
@@ -229,6 +201,17 @@ function adjustBodyPadding() {
 }
 window.addEventListener('load', adjustBodyPadding);
 window.addEventListener('resize', adjustBodyPadding);
+
+/* SIMPLE SLIDER */
+const slides = document.querySelector(".slides");
+const slideImages = document.querySelectorAll(".slides img");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+let index = 0;
+function showSlide(i){ if(i >= slideImages.length) index=0; else if(i<0) index=slideImages.length-1; else index=i; slides.style.transform=`translateX(${-index*100}%)`; }
+nextBtn.addEventListener("click", ()=>{ showSlide(index+1); });
+prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
+setInterval(()=>{ showSlide(index+1); },4000);
 </script>
 
 </body>
