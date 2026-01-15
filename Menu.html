@@ -41,7 +41,6 @@
 </script>
 
 <style>
-/* Keep all homepage styles exactly */
 :root { --orange:#e36a1c; --dark-brown:#5a2a0c; --light-bg:#fff8f1; }
 body { margin:0; font-family:"Segoe UI", Arial, sans-serif; background:var(--light-bg); color:#333; scroll-behavior:smooth; }
 header { position:fixed; top:0; left:0; width:100%; z-index:999; background:#fff; border-bottom:4px solid var(--orange); transition:all .4s ease, background .4s ease, backdrop-filter .4s ease; backdrop-filter: none; }
@@ -105,18 +104,6 @@ h2::after { content:""; display:block; width:50px; height:3px; background:var(--
 </header>
 
 <section>
-  <div class="card slider-container">
-    <div class="slider">
-      <div class="slides">
-        <img src="food1.jpg" alt="Delicious Biryani">
-        <img src="food2.jpg" alt="Paneer Tikka">
-        <img src="food3.jpg" alt="Fried Chicken Strips">
-        <img src="food4.jpg" alt="Egg Omelette Special">
-      </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-  </div>
 
   <div class="card menu-container">
     <h2>Our Menu</h2>
@@ -201,17 +188,6 @@ function adjustBodyPadding() {
 }
 window.addEventListener('load', adjustBodyPadding);
 window.addEventListener('resize', adjustBodyPadding);
-
-/* SIMPLE SLIDER */
-const slides = document.querySelector(".slides");
-const slideImages = document.querySelectorAll(".slides img");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-let index = 0;
-function showSlide(i){ if(i >= slideImages.length) index=0; else if(i<0) index=slideImages.length-1; else index=i; slides.style.transform=`translateX(${-index*100}%)`; }
-nextBtn.addEventListener("click", ()=>{ showSlide(index+1); });
-prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
-setInterval(()=>{ showSlide(index+1); },4000);
 </script>
 
 </body>
