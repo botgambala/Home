@@ -369,7 +369,6 @@ h2::after {
   .header-contact { font-size:13px; }
   nav a { margin:0 15px; }
   .slides img { height:180px; }
-  .prev, .next { font-size:18px; padding:6px 10px; }
   .dish-desc { max-width:100%; margin-top:6px; }
 }
 </style>
@@ -392,7 +391,7 @@ h2::after {
 
     <nav>
       <a href="index.html" data-page="index">Home</a>
-      <a href="https://www.biryanionthego.in/Menu" data-page="menu">Menu</a>
+      <a href="Menu.html" data-page="menu">Menu</a>
     </nav>
   </div>
 </header>
@@ -529,7 +528,7 @@ prevBtn.addEventListener("click", ()=>{ showSlide(index-1); });
 setInterval(()=>{ showSlide(index+1); }, 4000);
 
 /* DYNAMIC MENU LOAD AND FORMAT */
-fetch("https://www.biryanionthego.in/Menu.html")
+fetch("Menu.html")  // relative path to work locally and on server
   .then(res => res.text())
   .then(html => {
     const parser = new DOMParser();
@@ -539,10 +538,8 @@ fetch("https://www.biryanionthego.in/Menu.html")
     const placeholder = document.getElementById("menu-content-placeholder");
 
     if(menuContent){
-      // Clear placeholder
-      placeholder.remove();
+      placeholder.remove(); // remove loading text
 
-      // Transform each item to card layout
       menuContent.querySelectorAll(".menu-item-original").forEach(item=>{
         const dishName = item.querySelector(".dish-name")?.innerText || "";
         const dishDesc = item.querySelector(".dish-desc")?.innerText || "";
