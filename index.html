@@ -310,6 +310,15 @@ h2::after {
   margin:auto;
 }
 
+/* MENU IFRAME STYLING */
+.menu-iframe {
+  width:100%;
+  height:800px;
+  border:none;
+  border-radius:12px;
+  overflow:auto;
+}
+
 /* MOBILE */
 @media(max-width:768px){
   .header-inner {
@@ -330,6 +339,7 @@ h2::after {
   nav a { margin:0 15px; }
   .slides img { height:180px; }
   .prev, .next { font-size:18px; padding:6px 10px; }
+  .menu-iframe { height:600px; }
 }
 </style>
 </head>
@@ -382,6 +392,12 @@ h2::after {
       Alongside biryani, we offer a rotating range of veg and non-veg favourites for quick,
       satisfying bites.
     </p>
+  </div>
+
+  <!-- LIVE MENU SECTION -->
+  <div class="card">
+    <h2 class="section-title">Our Menu</h2>
+    <iframe src="https://www.biryanionthego.in/Menu.html" class="menu-iframe" loading="lazy"></iframe>
   </div>
 
   <div class="card hours">
