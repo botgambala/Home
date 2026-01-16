@@ -99,7 +99,7 @@ header.scrolled .header-inner {
   padding:4px 15px;
 }
 
-/* BRAND: LOGO LEFT, TAGLINE + INFO RIGHT */
+/* BRAND */
 .brand {
   display:flex;
   flex-direction:row;
@@ -131,7 +131,6 @@ header.scrolled img {
   font-weight:bold;
   color:var(--dark-brown);
   letter-spacing:1px;
-  opacity:1;
   white-space: nowrap;
 }
 
@@ -146,10 +145,6 @@ header.scrolled img {
   margin-right:12px;
 }
 
-.header-contact a:hover {
-  color:var(--orange);
-}
-
 /* NAV */
 nav a {
   margin-left:28px;
@@ -157,21 +152,11 @@ nav a {
   font-weight:600;
   color:var(--dark-brown);
   padding-bottom:6px;
-  opacity:0;
-  transform:translateY(-10px);
-  animation: fadeSlideIn 0.6s forwards;
 }
-
-nav a:nth-child(1) { animation-delay:0.6s; }
-nav a:nth-child(2) { animation-delay:0.8s; }
 
 nav a.active {
   color:var(--orange);
   border-bottom:3px solid var(--orange);
-}
-
-nav a:hover {
-  color:var(--orange);
 }
 
 /* CONTENT */
@@ -184,16 +169,6 @@ section {
 h2 {
   text-align:center;
   color:var(--dark-brown);
-  margin-bottom:18px;
-}
-
-h2::after {
-  content:"";
-  display:block;
-  width:50px;
-  height:3px;
-  background:var(--orange);
-  margin:10px auto 0;
 }
 
 .menu-item {
@@ -204,93 +179,13 @@ h2::after {
   font-size:15px;
 }
 
-.menu-item:last-child {
-  border-bottom:none;
-}
-
 .sub-item {
   margin-left:15px;
   font-size:14px;
 }
 
 .price {
-  font-weight:bold;
   color:#000;
-}
-
-.contact {
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.contact a {
-  color:#000;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.contact a:hover {
-  color:var(--orange);
-}
-
-.card {
-  background:#fff;
-  border-radius:12px;
-  padding:30px;
-  margin-bottom:35px;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-}
-
-.hours ul {
-  list-style:none;
-  padding:0;
-}
-
-.closed {
-  color:var(--orange);
-  font-weight:bold;
-}
-
-.call-btn,
-.map-btn {
-  display:inline-block;
-  margin:12px;
-  padding:13px 32px;
-  border-radius:40px;
-  color:#fff;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.call-btn { background:var(--orange); }
-.map-btn { background:var(--dark-brown); }
-
-.map-embed iframe {
-  width:100%;
-  height:350px;
-  border:0;
-  border-radius:12px;
-  referrerpolicy:no-referrer-when-downgrade;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .header-inner {
-    flex-direction:column;
-    text-align:center;
-    gap:10px;
-  }
-  .brand {
-    flex-direction:column;
-    gap:6px;
-  }
-  .tagline {
-    font-size:16px;
-  }
-  .header-contact {
-    font-size:13px;
-  }
-  nav a { margin:0 15px; }
 }
 </style>
 </head>
@@ -319,129 +214,51 @@ h2::after {
 
 <section>
 
-  <!-- ========================
-       MENU FIRST
-       ======================== -->
-  <div id="menu-content">
-    <div class="contact">📞 Call for Pickup: <a href="tel:9034270968">90342-70968</a></div>
+<div id="menu-content">
+<div class="contact">📞 Call for Pickup: <a href="tel:9034270968">90342-70968</a></div>
 
-    <!-- Biryani -->
-    <h2>Biryani</h2>
-    <div class="menu-item"><span>Dum Veg Biryani</span><span class="price">₹99</span></div>
-    <div class="menu-item"><span>Dum Chicken Biryani</span><span class="price">₹199</span></div>
+<h2>Biryani</h2>
+<div class="menu-item"><span><strong>Dum Veg Biryani</strong></span><span class="price"><strong><em>₹99</em></strong></span></div>
+<div class="menu-item"><span><strong>Dum Chicken Biryani</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
 
-    <!-- Beverages -->
-    <h2>Beverages</h2>
-    <div class="menu-item"><span>Mineral Water</span><span class="price">₹20</span></div>
-    <div class="menu-item"><span>Soda</span><span class="price">₹20</span></div>
-    <div class="menu-item"><span>Cold Drink 750ml</span><span class="price">₹40</span></div>
-    <div class="menu-item"><span>Cold Drink 1L</span><span class="price">₹50</span></div>
+<h2>Beverages</h2>
+<div class="menu-item"><span><strong>Mineral Water</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
+<div class="menu-item"><span><strong>Soda</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
+<div class="menu-item"><span><strong>Cold Drink 750ml</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Cold Drink 1L</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
 
-    <!-- Egg Specials -->
-    <h2>Egg Specials</h2>
-    <div class="menu-item"><span>Egg Omelette (2 Eggs)</span><span class="price">₹40</span></div>
-    <div class="menu-item"><span>Egg Bhurji (3 Eggs)</span><span class="price">₹40</span></div>
-    <div class="menu-item"><span>Boiled Egg (Per Piece)</span><span class="price">₹10</span></div>
+<h2>Egg Specials</h2>
+<div class="menu-item"><span><strong>Egg Omelette (2 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Egg Bhurji (3 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Boiled Egg (Per Piece)</strong></span><span class="price"><strong><em>₹10</em></strong></span></div>
 
-    <!-- Snacks -->
-    <h2>Snacks</h2>
-    <div class="menu-item"><span>French Fries</span><span class="price">₹50</span></div>
-    <div class="menu-item"><span>Chilli Garlic Shots</span><span class="price">₹149</span></div>
-    <div class="menu-item"><span>Cheese Corn Bites (10 pcs)</span><span class="price">₹175</span></div>
-    <div class="menu-item"><span>Paneer Fingers</span><span class="price">₹199</span></div>
-    <div class="menu-item"><span>Chicken Nuggets (10 pcs)</span><span class="price">₹149</span></div>
-    <div class="menu-item"><span>Chicken Lollipop Dry (6 pcs)</span><span class="price">₹149</span></div>
-    <div class="menu-item"><span>Chicken Seekh Kabab</span><span class="price">₹149</span></div>
-    <div class="menu-item"><span>Fried Chicken Bites</span><span class="price">₹199</span></div>
+<h2>Snacks</h2>
+<div class="menu-item"><span><strong>French Fries</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
+<div class="menu-item"><span><strong>Chilli Garlic Shots</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Cheese Corn Bites (10 pcs)</strong></span><span class="price"><strong><em>₹175</em></strong></span></div>
+<div class="menu-item"><span><strong>Paneer Fingers</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Nuggets (10 pcs)</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Lollipop Dry (6 pcs)</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Seekh Kabab</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Fried Chicken Bites</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
 
-    <!-- Soups -->
-    <h2>Soups</h2>
-    <div class="menu-item"><span>Tomato Soup</span><span class="price">₹40</span></div>
-    <div class="menu-item"><span>Chicken Soup</span><span class="price">₹50</span></div>
+<h2>Soups</h2>
+<div class="menu-item"><span><strong>Tomato Soup</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Soup</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
 
-    <!-- Chicken Main Course -->
-    <h2>Chicken Main Course</h2>
-    <div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
-    <div class="menu-item sub-item"><span>Quarter Chicken</span><span class="price">₹149</span></div>
-    <div class="menu-item sub-item"><span>Half Chicken</span><span class="price">₹299</span></div>
-    <div class="menu-item sub-item"><span>Full Chicken</span><span class="price">₹549</span></div>
+<h2>Chicken Main Course</h2>
+<div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
+<div class="menu-item sub-item"><span><strong>Quarter Chicken</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Half Chicken</strong></span><span class="price"><strong><em>₹299</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Full Chicken</strong></span><span class="price"><strong><em>₹549</em></strong></span></div>
 
-    <div class="menu-item"><strong>Handi / Matka Chicken</strong></div>
-    <div class="menu-item sub-item"><span>Quarter Chicken</span><span class="price">₹175</span></div>
-    <div class="menu-item sub-item"><span>Half Chicken</span><span class="price">₹349</span></div>
-    <div class="menu-item sub-item"><span>Full Chicken</span><span class="price">₹649</span></div>
-  </div>
-  <!-- END MENU-CONTENT -->
+<div class="menu-item"><strong>Handi / Matka Chicken</strong></div>
+<div class="menu-item sub-item"><span><strong>Quarter Chicken</strong></span><span class="price"><strong><em>₹175</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Half Chicken</strong></span><span class="price"><strong><em>₹349</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Full Chicken</strong></span><span class="price"><strong><em>₹649</em></strong></span></div>
 
-  <!-- OPENING HOURS -->
-  <div class="card hours">
-    <h2>Opening Hours</h2>
-    <ul>
-      <li>Sunday – Monday: 12:00 PM – 10:00 PM</li>
-      <li class="closed">Tuesday: Closed</li>
-      <li>Wednesday – Saturday: 12:00 PM – 10:00 PM</li>
-    </ul>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="card contact">
-    <h2>Visit or Call Us</h2>
-    <p>260, New Mandi Township, near Shiva Hardware, Ambala City</p>
-    <a class="call-btn" href="tel:9034270968">📞 90342-70968</a>
-    <a class="map-btn" href="https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8" target="_blank">
-      📍 Get Directions
-    </a>
-  </div>
-
-  <!-- MAP -->
-  <div class="card map-embed">
-    <h2>Find Us on Map</h2>
-    <iframe
-      src="https://www.google.com/maps?q=30.3691243,76.7718996&hl=en&z=17&output=embed"
-      loading="lazy">
-    </iframe>
-  </div>
-
+</div>
 </section>
-
-<footer>
-  © 2026 Biryani On-The-Go | Ambala
-</footer>
-
-<script>
-/* ACTIVE TAB */
-(function(){
-  const path = location.pathname.toLowerCase();
-  document.querySelectorAll("nav a").forEach(link=>{
-    if(path.includes("menu") && link.dataset.page==="menu"){
-      link.classList.add("active");
-    } else if(!path.includes("menu") && link.dataset.page==="index"){
-      link.classList.add("active");
-    }
-  });
-})();
-
-/* HEADER SCROLL */
-let lastScrollY = 0;
-const header = document.getElementById("siteHeader");
-window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
-  if(currentScroll > 40){ header.classList.add("scrolled"); } 
-  else { header.classList.remove("scrolled"); }
-  if(currentScroll > lastScrollY && currentScroll > 100){ header.classList.add("hidden"); } 
-  else { header.classList.remove("hidden"); }
-  lastScrollY = currentScroll;
-});
-
-/* BODY PADDING */
-function adjustBodyPadding() {
-  const header = document.getElementById('siteHeader');
-  const headerHeight = header.offsetHeight;
-  document.body.style.paddingTop = headerHeight + 'px';
-}
-window.addEventListener('load', adjustBodyPadding);
-window.addEventListener('resize', adjustBodyPadding);
-</script>
 
 </body>
 </html>
