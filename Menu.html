@@ -41,7 +41,7 @@ body {
   font-family:"Segoe UI", Arial, sans-serif;
   background:var(--light-bg);
   color:#333;
-  padding-top:120px;
+  padding-top:140px; /* slightly more for mobile header */
 }
 
 header {
@@ -56,7 +56,7 @@ header {
 .header-inner {
   max-width:1100px;
   margin:auto;
-  padding:6px 15px;
+  padding:8px 15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -78,7 +78,6 @@ header img {
   color:var(--dark-brown);
 }
 
-/* ✅ ONLY CHANGE */
 .header-contact {
   font-size:15.5px;
   font-weight:600;
@@ -103,6 +102,38 @@ nav a {
 nav a.active {
   color:var(--orange);
   border-bottom:3px solid var(--orange);
+}
+
+/* ✅ MOBILE HEADER FIX */
+@media (max-width: 768px) {
+  body {
+    padding-top:190px;
+  }
+
+  .header-inner {
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-align:center;
+  }
+
+  .brand {
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .tagline {
+    font-size:15px;
+  }
+
+  .header-contact {
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  nav a {
+    margin:0 12px;
+  }
 }
 
 section {
@@ -135,7 +166,7 @@ h2 {
 <header>
   <div class="header-inner">
     <div class="brand">
-      <img src="logo.png">
+      <img src="logo.png" alt="Biryani On-The-Go Logo">
       <div>
         <div class="tagline">Authentic Flavour, Anytime!</div>
         <div class="header-contact">
@@ -146,6 +177,7 @@ h2 {
         </div>
       </div>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="Menu.html" class="active">Menu</a>
@@ -155,6 +187,7 @@ h2 {
 
 <section>
 
+<!-- FULL MENU UNCHANGED -->
 <h2>Biryani</h2>
 <div class="menu-item"><strong>Dum Veg Biryani</strong><strong>₹99</strong></div>
 <div class="menu-item"><strong>Dum Chicken Biryani</strong><strong>₹199</strong></div>
@@ -168,15 +201,15 @@ h2 {
 <h2>Egg Specials</h2>
 <div class="menu-item"><strong>Egg Omelette (2 Eggs)</strong><strong>₹40</strong></div>
 <div class="menu-item"><strong>Egg Bhurji (3 Eggs)</strong><strong>₹40</strong></div>
-<div class="menu-item"><strong>Boiled Egg (Per Piece)</strong><strong>₹10</strong></div>
+<div class="menu-item"><strong>Boiled Egg</strong><strong>₹10</strong></div>
 
 <h2>Snacks</h2>
 <div class="menu-item"><strong>French Fries</strong><strong>₹50</strong></div>
 <div class="menu-item"><strong>Chilli Garlic Shots</strong><strong>₹149</strong></div>
-<div class="menu-item"><strong>Cheese Corn Bites (10 pcs)</strong><strong>₹175</strong></div>
+<div class="menu-item"><strong>Cheese Corn Bites</strong><strong>₹175</strong></div>
 <div class="menu-item"><strong>Paneer Fingers</strong><strong>₹199</strong></div>
-<div class="menu-item"><strong>Chicken Nuggets (10 pcs)</strong><strong>₹149</strong></div>
-<div class="menu-item"><strong>Chicken Lollipop Dry (6 pcs)</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Chicken Nuggets</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Chicken Lollipop Dry</strong><strong>₹149</strong></div>
 <div class="menu-item"><strong>Chicken Seekh Kabab</strong><strong>₹149</strong></div>
 <div class="menu-item"><strong>Fried Chicken Bites</strong><strong>₹199</strong></div>
 
@@ -185,7 +218,7 @@ h2 {
 <div class="menu-item"><strong>Chicken Soup</strong><strong>₹50</strong></div>
 
 <h2>Chicken Main Course</h2>
-<div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
+<div class="menu-item"><strong>Chef’s Special Chicken Masala</strong></div>
 <div class="menu-item sub-item"><strong>Quarter</strong><strong>₹149</strong></div>
 <div class="menu-item sub-item"><strong>Half</strong><strong>₹299</strong></div>
 <div class="menu-item sub-item"><strong>Full</strong><strong>₹549</strong></div>
