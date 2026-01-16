@@ -12,10 +12,7 @@
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Biryani On-The-Go",
-  "url": "https://www.biryanionthego.in",
-  "logo": "https://www.biryanionthego.in/logo.png",
   "telephone": "+91-9034270968",
-  "priceRange": "₹₹",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "260, New Mandi Township, near Shiva Hardware",
@@ -44,20 +41,16 @@ body {
   font-family:"Segoe UI", Arial, sans-serif;
   background:var(--light-bg);
   color:#333;
-  scroll-behavior:smooth;
   padding-top:120px;
 }
 
-/* HEADER */
 header {
   position:fixed;
   top:0;
-  left:0;
   width:100%;
-  z-index:999;
   background:#fff;
   border-bottom:4px solid var(--orange);
-  transition:all .4s ease;
+  z-index:999;
 }
 
 .header-inner {
@@ -65,24 +58,18 @@ header {
   margin:auto;
   padding:6px 15px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .brand {
   display:flex;
-  align-items:center;
   gap:20px;
+  align-items:center;
 }
 
 header img {
   max-width:150px;
-}
-
-.tagline-info {
-  display:flex;
-  flex-direction:column;
-  gap:6px;
 }
 
 .tagline {
@@ -91,7 +78,7 @@ header img {
   color:var(--dark-brown);
 }
 
-/* ✅ ONLY CHANGE STARTS HERE */
+/* ✅ ONLY CHANGE */
 .header-contact {
   font-size:15.5px;
   font-weight:600;
@@ -99,27 +86,18 @@ header img {
   background:#fff3e6;
   padding:6px 10px;
   border-radius:6px;
-  display:inline-block;
 }
 
 .header-contact a {
   color:#3b1c08;
   text-decoration:none;
-  margin-right:12px;
 }
-
-.header-contact a:hover {
-  color:var(--orange);
-  text-decoration:underline;
-}
-/* ✅ ONLY CHANGE ENDS HERE */
 
 nav a {
   margin-left:28px;
   text-decoration:none;
   font-weight:600;
   color:var(--dark-brown);
-  padding-bottom:6px;
 }
 
 nav a.active {
@@ -143,16 +121,11 @@ h2 {
   justify-content:space-between;
   padding:6px 0;
   border-bottom:1px dashed #ddd;
-  font-size:15px;
 }
 
 .sub-item {
   margin-left:15px;
   font-size:14px;
-}
-
-.price {
-  color:#000;
 }
 </style>
 </head>
@@ -162,8 +135,8 @@ h2 {
 <header>
   <div class="header-inner">
     <div class="brand">
-      <img src="logo.png" alt="Biryani On-The-Go Logo">
-      <div class="tagline-info">
+      <img src="logo.png">
+      <div>
         <div class="tagline">Authentic Flavour, Anytime!</div>
         <div class="header-contact">
           <a href="tel:9034270968">📞 90342-70968</a> |
@@ -173,7 +146,6 @@ h2 {
         </div>
       </div>
     </div>
-
     <nav>
       <a href="index.html">Home</a>
       <a href="Menu.html" class="active">Menu</a>
@@ -184,20 +156,44 @@ h2 {
 <section>
 
 <h2>Biryani</h2>
-<div class="menu-item"><span><strong>Dum Veg Biryani</strong></span><span class="price"><strong><em>₹99</em></strong></span></div>
-<div class="menu-item"><span><strong>Dum Chicken Biryani</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
+<div class="menu-item"><strong>Dum Veg Biryani</strong><strong>₹99</strong></div>
+<div class="menu-item"><strong>Dum Chicken Biryani</strong><strong>₹199</strong></div>
 
 <h2>Beverages</h2>
-<div class="menu-item"><span><strong>Mineral Water</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
-<div class="menu-item"><span><strong>Soda</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
+<div class="menu-item"><strong>Mineral Water</strong><strong>₹20</strong></div>
+<div class="menu-item"><strong>Soda</strong><strong>₹20</strong></div>
+<div class="menu-item"><strong>Cold Drink 750ml</strong><strong>₹40</strong></div>
+<div class="menu-item"><strong>Cold Drink 1L</strong><strong>₹50</strong></div>
 
 <h2>Egg Specials</h2>
-<div class="menu-item"><span><strong>Egg Omelette (2 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
-<div class="menu-item"><span><strong>Egg Bhurji (3 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><strong>Egg Omelette (2 Eggs)</strong><strong>₹40</strong></div>
+<div class="menu-item"><strong>Egg Bhurji (3 Eggs)</strong><strong>₹40</strong></div>
+<div class="menu-item"><strong>Boiled Egg (Per Piece)</strong><strong>₹10</strong></div>
 
 <h2>Snacks</h2>
-<div class="menu-item"><span><strong>French Fries</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
-<div class="menu-item"><span><strong>Chicken Nuggets</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><strong>French Fries</strong><strong>₹50</strong></div>
+<div class="menu-item"><strong>Chilli Garlic Shots</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Cheese Corn Bites (10 pcs)</strong><strong>₹175</strong></div>
+<div class="menu-item"><strong>Paneer Fingers</strong><strong>₹199</strong></div>
+<div class="menu-item"><strong>Chicken Nuggets (10 pcs)</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Chicken Lollipop Dry (6 pcs)</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Chicken Seekh Kabab</strong><strong>₹149</strong></div>
+<div class="menu-item"><strong>Fried Chicken Bites</strong><strong>₹199</strong></div>
+
+<h2>Soups</h2>
+<div class="menu-item"><strong>Tomato Soup</strong><strong>₹40</strong></div>
+<div class="menu-item"><strong>Chicken Soup</strong><strong>₹50</strong></div>
+
+<h2>Chicken Main Course</h2>
+<div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
+<div class="menu-item sub-item"><strong>Quarter</strong><strong>₹149</strong></div>
+<div class="menu-item sub-item"><strong>Half</strong><strong>₹299</strong></div>
+<div class="menu-item sub-item"><strong>Full</strong><strong>₹549</strong></div>
+
+<div class="menu-item"><strong>Handi / Matka Chicken</strong></div>
+<div class="menu-item sub-item"><strong>Quarter</strong><strong>₹175</strong></div>
+<div class="menu-item sub-item"><strong>Half</strong><strong>₹349</strong></div>
+<div class="menu-item sub-item"><strong>Full</strong><strong>₹649</strong></div>
 
 </section>
 
