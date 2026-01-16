@@ -41,7 +41,7 @@ body {
   font-family:"Segoe UI", Arial, sans-serif;
   background:var(--light-bg);
   color:#333;
-  padding-top:140px; /* slightly more for mobile header */
+  padding-top:140px; /* desktop – unchanged */
 }
 
 header {
@@ -104,10 +104,10 @@ nav a.active {
   border-bottom:3px solid var(--orange);
 }
 
-/* ✅ MOBILE HEADER FIX */
+/* ✅ MOBILE-ONLY FIX (THIS IS THE ONLY CHANGE) */
 @media (max-width: 768px) {
   body {
-    padding-top:190px;
+    padding-top:230px; /* increased so "Biryani" is fully visible */
   }
 
   .header-inner {
@@ -187,7 +187,6 @@ h2 {
 
 <section>
 
-<!-- FULL MENU UNCHANGED -->
 <h2>Biryani</h2>
 <div class="menu-item"><strong>Dum Veg Biryani</strong><strong>₹99</strong></div>
 <div class="menu-item"><strong>Dum Chicken Biryani</strong><strong>₹199</strong></div>
