@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Biryani On-The-Go | Menu</title>
 
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="logo.png">
 
+<!-- GOOGLE BUSINESS SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,7 +29,14 @@
     "@type": "GeoCoordinates",
     "latitude": 30.3691243,
     "longitude": 76.7718996
-  }
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Sunday","Monday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "12:00",
+    "closes": "22:00"
+  }],
+  "hasMap": "https://maps.app.goo.gl/oWNCfdRxjzSUAqqG8"
 }
 </script>
 
@@ -44,6 +53,7 @@ body {
   background:var(--light-bg);
   color:#333;
   scroll-behavior:smooth;
+  padding-top:120px; /* ✅ FIX: prevents header overlap */
 }
 
 /* HEADER */
@@ -55,6 +65,18 @@ header {
   z-index:999;
   background:#fff;
   border-bottom:4px solid var(--orange);
+  transition:all .4s ease, background .4s ease, backdrop-filter .4s ease;
+  backdrop-filter:none;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+}
+
+header.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.1);
 }
 
 .header-inner {
@@ -64,8 +86,20 @@ header {
   display:flex;
   align-items:center;
   justify-content:space-between;
+  opacity:0;
+  transform:translateY(-20px);
+  animation: fadeSlideIn .8s forwards .2s;
 }
 
+@keyframes fadeSlideIn {
+  to { opacity:1; transform:translateY(0); }
+}
+
+header.scrolled .header-inner {
+  padding:4px 15px;
+}
+
+/* BRAND */
 .brand {
   display:flex;
   align-items:center;
@@ -74,18 +108,28 @@ header {
 
 header img {
   max-width:150px;
+  opacity:0;
+  transform:translateY(-20px);
+  animation: fadeSlideIn .8s forwards .4s;
+}
+
+header.scrolled img {
+  transform:scale(.95);
 }
 
 .tagline {
+  font-size:18px;
   font-weight:bold;
   color:var(--dark-brown);
 }
 
+/* NAV */
 nav a {
   margin-left:28px;
   text-decoration:none;
   font-weight:600;
   color:var(--dark-brown);
+  padding-bottom:6px;
 }
 
 nav a.active {
@@ -110,10 +154,12 @@ h2 {
   justify-content:space-between;
   padding:6px 0;
   border-bottom:1px dashed #ddd;
+  font-size:15px;
 }
 
 .sub-item {
   margin-left:15px;
+  font-size:14px;
 }
 
 .price {
@@ -139,27 +185,49 @@ h2 {
 
 <section>
 
+<div id="menu-content">
 <h2>Biryani</h2>
-<div class="menu-item">
-  <span><strong>Dum Veg Biryani</strong></span>
-  <span class="price"><strong><em>₹99</em></strong></span>
-</div>
-<div class="menu-item">
-  <span><strong>Dum Chicken Biryani</strong></span>
-  <span class="price"><strong><em>₹199</em></strong></span>
+<div class="menu-item"><span><strong>Dum Veg Biryani</strong></span><span class="price"><strong><em>₹99</em></strong></span></div>
+<div class="menu-item"><span><strong>Dum Chicken Biryani</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
+
+<h2>Beverages</h2>
+<div class="menu-item"><span><strong>Mineral Water</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
+<div class="menu-item"><span><strong>Soda</strong></span><span class="price"><strong><em>₹20</em></strong></span></div>
+<div class="menu-item"><span><strong>Cold Drink 750ml</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Cold Drink 1L</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
+
+<h2>Egg Specials</h2>
+<div class="menu-item"><span><strong>Egg Omelette (2 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Egg Bhurji (3 Eggs)</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Boiled Egg (Per Piece)</strong></span><span class="price"><strong><em>₹10</em></strong></span></div>
+
+<h2>Snacks</h2>
+<div class="menu-item"><span><strong>French Fries</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
+<div class="menu-item"><span><strong>Chilli Garlic Shots</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Cheese Corn Bites (10 pcs)</strong></span><span class="price"><strong><em>₹175</em></strong></span></div>
+<div class="menu-item"><span><strong>Paneer Fingers</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Nuggets (10 pcs)</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Lollipop Dry (6 pcs)</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Seekh Kabab</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item"><span><strong>Fried Chicken Bites</strong></span><span class="price"><strong><em>₹199</em></strong></span></div>
+
+<h2>Soups</h2>
+<div class="menu-item"><span><strong>Tomato Soup</strong></span><span class="price"><strong><em>₹40</em></strong></span></div>
+<div class="menu-item"><span><strong>Chicken Soup</strong></span><span class="price"><strong><em>₹50</em></strong></span></div>
+
+<h2>Chicken Main Course</h2>
+<div class="menu-item"><strong>Chef’s Special Chicken Masala (Semi-Dry)</strong></div>
+<div class="menu-item sub-item"><span><strong>Quarter Chicken</strong></span><span class="price"><strong><em>₹149</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Half Chicken</strong></span><span class="price"><strong><em>₹299</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Full Chicken</strong></span><span class="price"><strong><em>₹549</em></strong></span></div>
+
+<div class="menu-item"><strong>Handi / Matka Chicken</strong></div>
+<div class="menu-item sub-item"><span><strong>Quarter Chicken</strong></span><span class="price"><strong><em>₹175</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Half Chicken</strong></span><span class="price"><strong><em>₹349</em></strong></span></div>
+<div class="menu-item sub-item"><span><strong>Full Chicken</strong></span><span class="price"><strong><em>₹649</em></strong></span></div>
 </div>
 
 </section>
-
-<script>
-/* FIX HEADER OVERLAP */
-function adjustBodyPadding() {
-  const header = document.getElementById("siteHeader");
-  document.body.style.paddingTop = header.offsetHeight + "px";
-}
-window.addEventListener("load", adjustBodyPadding);
-window.addEventListener("resize", adjustBodyPadding);
-</script>
 
 </body>
 </html>
