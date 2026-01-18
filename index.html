@@ -152,7 +152,7 @@ h2::after{
   margin-bottom:40px;
 }
 
-/* ===== DELIVERY + REVIEWS (OUTSIDE CARD) ===== */
+/* ===== DELIVERY + REVIEWS ===== */
 .dual-section{
   max-width:1000px;
   margin:40px auto;
@@ -226,6 +226,21 @@ h2::after{
 .review-text{
   font-size:15px;
   line-height:1.6;
+}
+
+/* SOCIAL ICONS */
+.social-icons{
+  position:absolute;
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:20px;
+  font-size:22px;
+}
+
+.social-icons a{
+  text-decoration:none;
 }
 
 /* ABOUT */
@@ -365,14 +380,12 @@ footer{
   </div>
 </header>
 
-<!-- HERO SLIDER -->
 <div class="slider">
   <div class="slide active"><img src="food1.jpg" alt="Biryani"></div>
   <div class="slide"><img src="food2.jpg" alt="Snacks"></div>
   <div class="slide"><img src="food3.jpg" alt="Chicken"></div>
 </div>
 
-<!-- ABOUT -->
 <section class="card">
   <h2>Crafted for the Modern Biryani Lover</h2>
   <p class="about-text">
@@ -382,7 +395,6 @@ footer{
   </p>
 </section>
 
-<!-- DELIVERY + REVIEWS -->
 <div class="dual-section">
 
   <div class="delivery-block">
@@ -390,20 +402,15 @@ footer{
       Craving biryani? Find us on Zomato & Swiggy 😋
     </div>
     <div class="delivery-slider">
-      <div class="delivery-slide active">
-        <img src="zomato.png" alt="Zomato">
-      </div>
-      <div class="delivery-slide">
-        <img src="swiggy.png" alt="Swiggy">
-      </div>
+      <div class="delivery-slide active"><img src="zomato.png" alt="Zomato"></div>
+      <div class="delivery-slide"><img src="swiggy.png" alt="Swiggy"></div>
     </div>
   </div>
 
   <div class="review-block">
-    <div class="review-title">
-      What customers are saying on Google ⭐
-    </div>
+    <div class="review-title">What customers are saying on Google ⭐</div>
     <div class="review-slider">
+
       <div class="review-card active">
         <div class="review-stars">★★★★★</div>
         <div class="review-name">Parag R.</div>
@@ -435,12 +442,18 @@ footer{
           Nice and affordable food , tried their chef special, loved it
         </div>
       </div>
+
+      <div class="social-icons">
+        <a href="https://www.instagram.com/biryanionthegoambala/" target="_blank">📸</a>
+        <a href="https://www.facebook.com/profile.php?id=61585706570533" target="_blank">📘</a>
+        <a href="https://share.google/IXsiswoSGpYN1tvb9" target="_blank">⭐</a>
+      </div>
+
     </div>
   </div>
 
 </div>
 
-<!-- MENU PREVIEW -->
 <section class="card">
   <h2>Menu Preview</h2>
   <div id="live-menu-container">
@@ -452,7 +465,6 @@ footer{
   </div>
 </section>
 
-<!-- HOURS -->
 <section class="card hours">
   <h2>Opening Hours</h2>
   <ul>
@@ -462,7 +474,6 @@ footer{
   </ul>
 </section>
 
-<!-- MAP -->
 <section class="card map">
   <h2>Find Us</h2>
   <iframe
