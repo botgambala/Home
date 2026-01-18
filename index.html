@@ -20,9 +20,6 @@
 <meta property="og:site_name" content="Biryani On-The-Go">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Biryani On-The-Go">
-<meta name="twitter:description" content="Authentic Dum Biryani, Snacks & Beverages in Ambala | Call: 90342-70968">
-<meta name="twitter:image" content="https://www.biryanionthego.in/logo.png">
 
 <style>
 :root{
@@ -100,7 +97,7 @@ nav a.active{
   border-bottom:3px solid var(--orange);
 }
 
-/* ===== MAIN SLIDER ===== */
+/* ===== IMAGE SLIDER ===== */
 .slider{
   margin:120px auto 0;
   max-width:1100px;
@@ -155,26 +152,34 @@ h2::after{
   margin-bottom:40px;
 }
 
-/* ===== DELIVERY PARTNER FADE (DOUBLE SIZE) ===== */
-.delivery-slider-wrapper{
+/* ===== DELIVERY + REVIEWS (OUTSIDE CARD) ===== */
+.dual-section{
   max-width:1000px;
-  margin:40px auto 0;
+  margin:40px auto;
   padding:0 15px;
+  display:flex;
+  gap:30px;
+}
+
+.delivery-block,
+.review-block{
+  width:50%;
 }
 
 .delivery-title{
   font-weight:600;
-  margin-bottom:18px;
+  margin-bottom:15px;
   color:var(--dark-brown);
 }
 
-.delivery-slider{
-  width:50%;
+.delivery-slider,
+.review-slider{
+  height:440px;
   position:relative;
-  height:440px; /* DOUBLED */
   overflow:hidden;
 }
 
+/* DELIVERY SLIDES */
 .delivery-slide{
   position:absolute;
   inset:0;
@@ -185,14 +190,41 @@ h2::after{
   transition:opacity 1.2s ease-in-out;
 }
 
-.delivery-slide.active{
-  opacity:1;
-}
+.delivery-slide.active{ opacity:1; }
 
 .delivery-slide img{
-  max-height:320px; /* DOUBLED */
+  max-height:320px;
   max-width:100%;
   object-fit:contain;
+}
+
+/* REVIEW SLIDES */
+.review-card{
+  position:absolute;
+  inset:0;
+  background:#fff;
+  padding:30px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
+}
+
+.review-card.active{ opacity:1; }
+
+.review-stars{
+  color:#f5a623;
+  font-size:18px;
+}
+
+.review-name{
+  font-weight:700;
+  margin:8px 0 12px;
+}
+
+.review-text{
+  font-size:15px;
+  line-height:1.6;
 }
 
 /* ABOUT */
@@ -273,9 +305,7 @@ footer{
 
 /* ===== MOBILE ===== */
 @media (max-width:768px){
-  body{
-    padding-top:230px;
-  }
+  body{ padding-top:230px; }
 
   .header-inner{
     flex-direction:column;
@@ -293,13 +323,18 @@ footer{
     margin-top:140px;
   }
 
-  .delivery-slider{
-    width:100%;
-    height:300px;
+  .dual-section{
+    flex-direction:column;
   }
 
-  .delivery-slide img{
-    max-height:220px;
+  .delivery-block,
+  .review-block{
+    width:100%;
+  }
+
+  .delivery-slider,
+  .review-slider{
+    height:320px;
   }
 }
 </style>
@@ -307,7 +342,7 @@ footer{
 
 <body>
 
-<header id="siteHeader">
+<header>
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="Biryani On-The-Go Logo">
@@ -329,36 +364,79 @@ footer{
   </div>
 </header>
 
+<!-- HERO SLIDER -->
 <div class="slider">
   <div class="slide active"><img src="food1.jpg" alt="Biryani"></div>
   <div class="slide"><img src="food2.jpg" alt="Snacks"></div>
   <div class="slide"><img src="food3.jpg" alt="Chicken"></div>
 </div>
 
+<!-- ABOUT -->
 <section class="card">
   <h2>Crafted for the Modern Biryani Lover</h2>
   <p class="about-text">
     Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic Dum
-    Biryani with rich flavours and fragrant rice.
+    Biryani with rich flavours and fragrant rice. Freshly cooked, packed hot, and
+    made to travel well.
   </p>
 </section>
 
-<!-- DELIVERY PARTNER FADE -->
-<div class="delivery-slider-wrapper">
-  <div class="delivery-title">
-    Craving biryani? Find us on Zomato & Swiggy 😋
+<!-- DELIVERY + REVIEWS -->
+<div class="dual-section">
+
+  <div class="delivery-block">
+    <div class="delivery-title">
+      Craving biryani? Find us on Zomato & Swiggy 😋
+    </div>
+    <div class="delivery-slider">
+      <div class="delivery-slide active">
+        <img src="zomato.png" alt="Zomato">
+      </div>
+      <div class="delivery-slide">
+        <img src="swiggy.png" alt="Swiggy">
+      </div>
+    </div>
   </div>
 
-  <div class="delivery-slider">
-    <div class="delivery-slide active">
-      <img src="zomato.png" alt="Available on Zomato">
-    </div>
-    <div class="delivery-slide">
-      <img src="swiggy.png" alt="Available on Swiggy">
+  <div class="review-block">
+    <div class="review-slider">
+      <div class="review-card active">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-name">Parag R.</div>
+        <div class="review-text">
+          Good soup, excellent customer service and ambience. Newly opened but highly recommended. Enough parking space is a plus about the location.
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-name">Usf S.</div>
+        <div class="review-text">
+          I loved the chicken biryani from Biryani-on-The-go. The taste of chicken was well marinated in wholesome basmati rice. Highly recommended to try once.
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-name">Ankita R.</div>
+        <div class="review-text">
+          Delicious biryani with great aroma and taste. The rice is well-cooked, spices are perfectly balanced, and the portion size is satisfying. Packaging is neat and convenient for takeout, and service is quick.
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-name">Ved N.</div>
+        <div class="review-text">
+          Nice and affordable food , tried their chef special, loved it
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
 
+<!-- MENU PREVIEW -->
 <section class="card">
   <h2>Menu Preview</h2>
   <div id="live-menu-container">
@@ -370,6 +448,7 @@ footer{
   </div>
 </section>
 
+<!-- HOURS -->
 <section class="card hours">
   <h2>Opening Hours</h2>
   <ul>
@@ -379,9 +458,13 @@ footer{
   </ul>
 </section>
 
+<!-- MAP -->
 <section class="card map">
   <h2>Find Us</h2>
-  <iframe src="https://www.google.com/maps?q=30.3691243,76.7718996&z=17&output=embed" loading="lazy"></iframe>
+  <iframe
+    src="https://www.google.com/maps?q=30.3691243,76.7718996&z=17&output=embed"
+    loading="lazy">
+  </iframe>
 </section>
 
 <footer>
@@ -389,7 +472,7 @@ footer{
 </footer>
 
 <script>
-/* MAIN SLIDER */
+/* HERO SLIDER */
 let slides=document.querySelectorAll(".slide");
 let i=0;
 setInterval(()=>{
@@ -398,7 +481,7 @@ setInterval(()=>{
   slides[i].classList.add("active");
 },4000);
 
-/* DELIVERY FADE */
+/* DELIVERY SLIDER */
 let dSlides=document.querySelectorAll(".delivery-slide");
 let d=0;
 setInterval(()=>{
@@ -406,6 +489,15 @@ setInterval(()=>{
   d=(d+1)%dSlides.length;
   dSlides[d].classList.add("active");
 },3500);
+
+/* REVIEW SLIDER */
+let rSlides=document.querySelectorAll(".review-card");
+let r=0;
+setInterval(()=>{
+  rSlides[r].classList.remove("active");
+  r=(r+1)%rSlides.length;
+  rSlides[r].classList.add("active");
+},4500);
 
 /* LIVE MENU FETCH */
 fetch("Menu.html")
