@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="512x512" href="logo.png">
 <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
 
-<!-- SOCIAL PREVIEW (WHATSAPP / CHAT APPS) -->
+<!-- SOCIAL PREVIEW -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Biryani On-The-Go">
 <meta property="og:description" content="Authentic Dum Biryani, Snacks & Beverages in Ambala | Call: 90342-70968">
@@ -19,7 +19,6 @@
 <meta property="og:url" content="https://www.biryanionthego.in/">
 <meta property="og:site_name" content="Biryani On-The-Go">
 
-<!-- Optional: Twitter / X Preview -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Biryani On-The-Go">
 <meta name="twitter:description" content="Authentic Dum Biryani, Snacks & Beverages in Ambala | Call: 90342-70968">
@@ -40,7 +39,7 @@ body{
   padding-top:140px;
 }
 
-/* ===== HEADER (COPIED FROM MENU PAGE) ===== */
+/* ===== HEADER ===== */
 header{
   position:fixed;
   top:0;
@@ -101,7 +100,7 @@ nav a.active{
   border-bottom:3px solid var(--orange);
 }
 
-/* ===== IMAGE SLIDER ===== */
+/* ===== MAIN SLIDER ===== */
 .slider{
   margin:120px auto 0;
   max-width:1100px;
@@ -154,6 +153,46 @@ h2::after{
   border-radius:14px;
   box-shadow:0 10px 25px rgba(0,0,0,.08);
   margin-bottom:40px;
+}
+
+/* ===== DELIVERY PARTNER FADE ===== */
+.delivery-slider-wrapper{
+  max-width:1000px;
+  margin:40px auto 0;
+  padding:0 15px;
+}
+
+.delivery-title{
+  font-weight:600;
+  margin-bottom:12px;
+  color:var(--dark-brown);
+}
+
+.delivery-slider{
+  width:50%;
+  position:relative;
+  height:120px;
+  overflow:hidden;
+}
+
+.delivery-slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
+}
+
+.delivery-slide.active{
+  opacity:1;
+}
+
+.delivery-slide img{
+  max-height:90px;
+  max-width:100%;
+  object-fit:contain;
 }
 
 /* ABOUT */
@@ -232,7 +271,7 @@ footer{
   color:#555;
 }
 
-/* ===== MOBILE (COPIED FROM MENU PAGE) ===== */
+/* ===== MOBILE ===== */
 @media (max-width:768px){
   body{
     padding-top:230px;
@@ -240,7 +279,6 @@ footer{
 
   .header-inner{
     flex-direction:column;
-    align-items:center;
     gap:10px;
     text-align:center;
   }
@@ -250,22 +288,13 @@ footer{
     gap:8px;
   }
 
-  .tagline{
-    font-size:15px;
-  }
-
-  .header-contact{
-    font-size:15px;
-    line-height:1.5;
-  }
-
-  nav a{
-    margin:0 12px;
-  }
-
   .slider{
     height:260px;
     margin-top:140px;
+  }
+
+  .delivery-slider{
+    width:100%;
   }
 }
 </style>
@@ -295,40 +324,47 @@ footer{
   </div>
 </header>
 
-<!-- IMAGE SLIDER -->
 <div class="slider">
   <div class="slide active"><img src="food1.jpg" alt="Biryani"></div>
   <div class="slide"><img src="food2.jpg" alt="Snacks"></div>
   <div class="slide"><img src="food3.jpg" alt="Chicken"></div>
 </div>
 
-<!-- ABOUT -->
 <section class="card">
   <h2>Crafted for the Modern Biryani Lover</h2>
   <p class="about-text">
     Biryani On-The-Go is a takeaway-first kitchen in Ambala serving authentic Dum
-    Biryani with rich flavours and fragrant rice. Freshly cooked, packed hot, and
-    made to travel well. Alongside biryani, we offer a rotating range of veg and
-    non-veg favourites for quick, satisfying bites.
+    Biryani with rich flavours and fragrant rice.
   </p>
 </section>
 
-<!-- MENU PREVIEW -->
+<!-- DELIVERY PARTNER FADE -->
+<div class="delivery-slider-wrapper">
+  <div class="delivery-title">
+    Craving biryani? Find us on Zomato & Swiggy 😋
+  </div>
+
+  <div class="delivery-slider">
+    <div class="delivery-slide active">
+      <img src="zomato.png" alt="Available on Zomato">
+    </div>
+    <div class="delivery-slide">
+      <img src="swiggy.png" alt="Available on Swiggy">
+    </div>
+  </div>
+</div>
+
 <section class="card">
   <h2>Menu Preview</h2>
-
   <div id="live-menu-container">
     <p style="text-align:center;color:#999;">Loading menu…</p>
   </div>
-
   <p class="menu-preview-note">Showing a preview. Full menu available.</p>
-
   <div style="text-align:center;">
     <a href="Menu.html" class="view-full-menu">View Full Menu →</a>
   </div>
 </section>
 
-<!-- OPENING HOURS -->
 <section class="card hours">
   <h2>Opening Hours</h2>
   <ul>
@@ -338,13 +374,9 @@ footer{
   </ul>
 </section>
 
-<!-- MAP -->
 <section class="card map">
   <h2>Find Us</h2>
-  <iframe
-    src="https://www.google.com/maps?q=30.3691243,76.7718996&z=17&output=embed"
-    loading="lazy">
-  </iframe>
+  <iframe src="https://www.google.com/maps?q=30.3691243,76.7718996&z=17&output=embed" loading="lazy"></iframe>
 </section>
 
 <footer>
@@ -352,7 +384,7 @@ footer{
 </footer>
 
 <script>
-/* SLIDER AUTO */
+/* MAIN SLIDER */
 let slides=document.querySelectorAll(".slide");
 let i=0;
 setInterval(()=>{
@@ -360,6 +392,15 @@ setInterval(()=>{
   i=(i+1)%slides.length;
   slides[i].classList.add("active");
 },4000);
+
+/* DELIVERY FADE */
+let dSlides=document.querySelectorAll(".delivery-slide");
+let d=0;
+setInterval(()=>{
+  dSlides[d].classList.remove("active");
+  d=(d+1)%dSlides.length;
+  dSlides[d].classList.add("active");
+},3500);
 
 /* LIVE MENU FETCH */
 fetch("Menu.html")
