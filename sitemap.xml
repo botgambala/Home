@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.biryanionthego.in/</loc>
+    <lastmod>2026-01-25</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://www.biryanionthego.in/Menu.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://www.biryanionthego.in/biryani-in-ambala.html</loc>
+    <lastmod>2026-01-25</lastmod>
+    <priority>0.95</priority>
+  </url>
+
+</urlset>
