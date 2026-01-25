@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Biryani On-The-Go">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- MASTER RESTAURANT SCHEMA -->
+<!-- Master LocalBusiness Schema for Biryani On-The-Go -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,52 +36,164 @@
     "postalCode": "134003",
     "addressCountry": "IN"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "30.3752",
+    "longitude": "76.7821"
+  },
   "servesCuisine": "Biryani",
-  "priceRange": "₹₹"
+  "priceRange": "₹₹",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Sunday","Monday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "12:00",
+    "closes": "22:00"
+  }],
+  "sameAs": [
+    "https://maps.app.goo.gl/1JPffnF91DimS9qh6",
+    "https://www.instagram.com/biryanionthegoambala/",
+    "https://www.facebook.com/profile.php?id=61585706570533",
+    "https://www.zomato.com/ambala/biryani-on-the-go-ambala-locality/order",
+    "https://www.swiggy.com/city/ambala/biryani-on-the-go-ambala-city-rest1300254"
+  ]
 }
 </script>
-    <!-- Line 11–25: Basic Styling -->
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-        }
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #8b0000;
-        }
-        .cta {
-            background: #8b0000;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            margin: 30px 0;
-        }
-        .cta a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        footer {
-            background: #f4f4f4;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-    </style>
+
+
+<style>
+:root {
+  --orange:#e36a1c;
+  --dark-brown:#5a2a0c;
+  --light-bg:#fff8f1;
+}
+
+body {
+  margin:0;
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:var(--light-bg);
+  color:#333;
+  padding-top:140px;
+}
+
+header {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  border-bottom:4px solid var(--orange);
+  z-index:999;
+}
+
+.header-inner {
+  max-width:1100px;
+  margin:auto;
+  padding:8px 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand {
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+header img {
+  max-width:150px;
+}
+
+.tagline {
+  font-size:18px;
+  font-weight:bold;
+  color:var(--dark-brown);
+}
+
+.header-contact {
+  font-size:15.5px;
+  font-weight:600;
+  color:#3b1c08;
+  background:#fff3e6;
+  padding:6px 10px;
+  border-radius:6px;
+}
+
+.header-contact a {
+  color:#3b1c08;
+  text-decoration:none;
+}
+
+nav a {
+  margin-left:28px;
+  text-decoration:none;
+  font-weight:600;
+  color:var(--dark-brown);
+}
+
+nav a.active {
+  color:var(--orange);
+  border-bottom:3px solid var(--orange);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top:230px;
+  }
+
+  .header-inner {
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-align:center;
+  }
+
+  .brand {
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .tagline {
+    font-size:15px;
+  }
+
+  .header-contact {
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  nav a {
+    margin:0 12px;
+  }
+}
+
+section {
+  max-width:1000px;
+  margin:auto;
+  padding:35px 15px;
+}
+
+h2 {
+  text-align:center;
+  color:var(--dark-brown);
+}
+
+.menu-item {
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  border-bottom:1px dashed #ddd;
+}
+
+.sub-item {
+  margin-left:15px;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Line 26–35: Header -->
- <header>
+<header>
   <div class="header-inner">
     <div class="brand">
       <img src="logo.png" alt="Biryani On-The-Go Logo">
